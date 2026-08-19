@@ -8,7 +8,7 @@
 
 **Estado**: pendiente de validación por María y Ana, y de revisión técnica del IAM (Jesús Cuadrado).
 
-**Motivo**: desarrollo del Tema 29, dentro de la serie de temas técnicos generados desde cero, replicando la estructura y el formato de los Temas 1, 11 y 17-24 ya consolidados. Se genera **saltando los Temas 25 a 28**, cuyos esqueletos están disponibles pero aún no desarrollados; el bloque técnico queda por tanto **completo de T11 a T24** y con **hueco en T25-T28**.
+**Motivo**: desarrollo del Tema 29, dentro de la serie de temas técnicos generados desde cero, replicando la estructura y el formato de los Temas 1, 11 y 17-24 ya consolidados. Se genera **saltando los Temas 27 y 28**, cuyos esqueletos están disponibles pero aún no desarrollados (T25 y T26 sí lo están, publicados el 2026-08-19 y el 2026-08-20). El bloque técnico queda por tanto **completo de T11 a T26**, con **hueco en T27 y T28** y con T29 ya cerrado.
 
 ### Alcance de la v1.0
 
@@ -40,7 +40,7 @@
 ### Pendientes para QA / próxima iteración
 
 - Validación de profundidad por María/Ana/IAM (¿alguna sección a ampliar o recortar? ¿el equilibrio entre la mitad técnica y la organizativa es el adecuado?).
-- **Generar T25, T26, T27 y T28** para cerrar el hueco del bloque técnico: sus esqueletos ya están en `Test_Prompting/temas agosto/`.
+- **Generar T27 y T28** para cerrar el hueco del bloque técnico y dejar T11-T29 sin huecos: sus esqueletos ya están en `Test_Prompting/temas agosto/`.
 - Confirmar con el IAM si conviene sustituir los tiempos ilustrativos del SLA por los reales de su contrato de soporte.
 - Confirmar si el detalle del Anexo II del ENS debe ampliarse aquí o queda mejor remitido al Tema 39.
 - Verificación ortográfica con corrector es_ES (cuidado con falsos positivos por términos técnicos en inglés: *framebuffer*, *shadowing*, *broker*, *relay*, *workaround*, *backlog*, *service desk*, *major incident*, *follow the sun*, *jump host*…).
