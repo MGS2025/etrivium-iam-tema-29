@@ -801,6 +801,8 @@ La gestión de incidencias y la de problemas son **complementarias y de naturale
 
 ## 3. Marco normativo, seguridad y calidad en la Administración Pública
 
+> **Material complementario.** El enunciado oficial de este tema no nombra este apartado. Se mantiene porque sitúa la materia en el Ayuntamiento y en la normativa que le aplica, pero lo exigible es lo que enumera el título del tema.
+
 ### 3.1. Seguridad en la asistencia remota
 
 #### 3.1.1. Control de accesos y principio de mínimo privilegio

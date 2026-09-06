@@ -38,7 +38,7 @@
    2.4.1. Diferencias entre incidencia, problema y petición
    2.4.2. Integración de la gestión de incidencias con la gestión de problemas
 
-3. **Marco normativo, seguridad y calidad en la Administración Pública**
+3. **Marco normativo, seguridad y calidad en la Administración Pública (material complementario)**
    3.1. Seguridad en la asistencia remota
    3.1.1. Control de accesos y principio de mínimo privilegio
    3.1.2. Trazabilidad, auditoría y registro de actividades de asistencia
