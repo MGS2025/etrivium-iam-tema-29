@@ -262,7 +262,7 @@
 ## D6 · Gestión dentro de banda frente a fuera de banda
 
 **Sección**: §1.3.1 — Protocolos de nivel de aplicación para gestión remota
-**Propósito**: Aislar la distinción que resuelve la pregunta clásica de «el equipo no arranca y está a veinte kilómetros».
+**Propósito**: Aislar la distinción que resuelve el caso típico de «el equipo no arranca y está a veinte kilómetros».
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" role="img" aria-label="Comparación entre gestión dentro de banda, que depende del sistema operativo del equipo y usa RDP, VNC, SSH o WinRM, y gestión fuera de banda, que usa un controlador dedicado con red y alimentación propias mediante IPMI o Redfish y funciona con el equipo apagado o con el sistema operativo caído">
@@ -322,7 +322,7 @@
   <rect x="182" y="242" width="155" height="40" rx="4" fill="#0055a0"/><text x="259" y="258" text-anchor="middle" class="t7">INTEGRIDAD</text><text x="259" y="273" text-anchor="middle" class="s7">nadie altera lo enviado</text>
   <rect x="344" y="242" width="155" height="40" rx="4" fill="#2d8659"/><text x="421" y="258" text-anchor="middle" class="t7">AUTENTICIDAD</text><text x="421" y="273" text-anchor="middle" class="s7">nadie suplanta un extremo</text>
   <rect x="506" y="242" width="154" height="40" rx="4" fill="#e89822"/><text x="583" y="258" text-anchor="middle" class="t7">TRAZABILIDAD</text><text x="583" y="273" text-anchor="middle" class="s7">registro nominal</text>
-  <text x="670" y="296" text-anchor="end" class="n7">[Fuente: RFC6143; RFC4254; RFC8446]</text>
+  <text x="670" y="296" text-anchor="end" class="n7">[Fuente: RFC6143; RFC4254; RFC9846]</text>
 </svg>
 ```
 
@@ -581,7 +581,7 @@
 ## D14 · Escalado funcional frente a escalado jerárquico
 
 **Sección**: §2.3.2 — Diagnóstico, escalado funcional y jerárquico
-**Propósito**: Separar visualmente los dos ejes del escalado, que es una de las confusiones más frecuentes y más preguntadas.
+**Propósito**: Separar visualmente los dos ejes del escalado, que es una de las confusiones más frecuentes.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" role="img" aria-label="Los dos ejes del escalado: el escalado funcional u horizontal, que traslada la incidencia a grupos con mayor conocimiento técnico del nivel 1 al nivel 3 y al proveedor, y el escalado jerárquico o vertical, que informa a niveles de autoridad superiores para decidir, autorizar o aportar recursos, con la indicación de que pueden coexistir y de que la propiedad del tique nunca se transfiere">

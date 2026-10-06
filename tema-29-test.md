@@ -130,7 +130,7 @@ C) El equipo que es controlado, es decir, el del usuario, que sirve su pantalla 
 
 <details><summary>Respuesta</summary>
 
-**Correcta: C) El equipo que es controlado, es decir, el del usuario, que sirve su pantalla al visor del técnico** Es una inversión terminológica que se pregunta con frecuencia; en X Window ocurre algo análogo, con el servidor X ejecutándose donde está la pantalla del usuario.
+**Correcta: C) El equipo que es controlado, es decir, el del usuario, que sirve su pantalla al visor del técnico** Es una inversión terminológica; en X Window ocurre algo análogo, con el servidor X ejecutándose donde está la pantalla del usuario.
 
 *Referencia: §1.2.1 [RFC6143]*
 </details>
@@ -336,7 +336,7 @@ C) Que el técnico no necesite autenticarse si el certificado del servidor es v�
 
 **Correcta: A) Que comprometer en el futuro la clave privada del servidor no permita descifrar sesiones pasadas que hubieran sido grabadas** Es una propiedad del intercambio de claves, no del cifrado simétrico ni de la autenticación.
 
-*Referencia: §1.3.2 [RFC8446]*
+*Referencia: §1.3.2 [RFC9846]*
 </details>
 
 ---

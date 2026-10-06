@@ -15,7 +15,8 @@
 | `[RFC4252]` | IETF. *RFC 4252: The Secure Shell (SSH) Authentication Protocol*. Métodos de autenticación: contraseña, clave pública, *host-based*. |
 | `[RFC4253]` | IETF. *RFC 4253: The Secure Shell (SSH) Transport Layer Protocol*. Intercambio de claves, cifrado, integridad y autenticación del servidor. Puerto TCP 22. |
 | `[RFC4254]` | IETF. *RFC 4254: The Secure Shell (SSH) Connection Protocol*. Multiplexación de canales, sesiones interactivas y **reenvío de puertos** (*port forwarding*, túneles). |
-| `[RFC8446]` | IETF. *RFC 8446: The Transport Layer Security (TLS) Protocol Version 1.3* (2018). Cifrado del canal de las herramientas de asistencia remota y de las consolas web de gestión. |
+| `[RFC9846]` | IETF. *RFC 9846: The Transport Layer Security (TLS) Protocol Version 1.3* (julio de 2026). Obsoleta los RFC 5077, 5246, 6961, 7627, 8422 y 8446: es la especificación vigente de TLS 1.3 y sustituye a la de 2018. Cifrado del canal de las herramientas de asistencia remota y de las consolas web de gestión. |
+| `[RFC8446]` | IETF. *RFC 8446: The Transport Layer Security (TLS) Protocol Version 1.3* (agosto de 2018). Obsoletado por el RFC 9846. Se conserva la referencia porque es la que recogen los temarios al uso. |
 | `[RFC5280]` | IETF. *RFC 5280: Internet X.509 Public Key Infrastructure Certificate and CRL Profile*. Certificados usados para autenticar servidores de mediación, agentes y puestos. |
 | `[RFC4120]` | IETF. *RFC 4120: The Kerberos Network Authentication Service (V5)*. Autenticación mediante tiques (TGT/TGS) en dominios corporativos. Puerto 88. |
 | `[RFC4511]` | IETF. *RFC 4511: Lightweight Directory Access Protocol (LDAP): The Protocol*. Directorio corporativo de identidades y grupos. Puertos 389 y 636 (sobre TLS). |

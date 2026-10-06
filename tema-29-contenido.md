@@ -16,17 +16,17 @@
 
 Este tema incluye cuatro tipos de **cajas callout** para facilitar el estudio:
 
-> **[DATO CLAVE EXAMEN]** Información de alta densidad memorística, con alta probabilidad de aparecer en el test oficial.
+> **[DATO CLAVE]** Información de alta densidad memorística.
 
 > **[EJERCICIO RESUELTO]** Problema + solución paso a paso (clasificación de una incidencia, cálculo de una prioridad o de un indicador, elección de un mecanismo de conexión).
 
-> **[EJEMPLO AYTO MADRID]** Aplicación real de la teoría al entorno municipal (puesto de trabajo del empleado, sede electrónica, Oficinas de Atención a la Ciudadanía, expedientes).
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Aplicación real de la teoría al entorno municipal (puesto de trabajo del empleado, sede electrónica, Oficinas de Atención a la Ciudadanía, expedientes).
 
-> **[REFERENCIA CRUZADA]** Enlace conceptual a otros temas del temario oficial.
+> **[RELACIÓN CON OTROS TEMAS]** Enlace conceptual a otros temas del temario oficial.
 
 Este es un tema **de dos mitades**, y conviene tenerlo presente desde el principio. La primera es **técnica**: cómo se toma control de un puesto de trabajo a distancia, con qué protocolos, por qué puertos y con qué garantías. La segunda es **organizativa**: cómo se gestiona el ciclo de vida de una incidencia dentro de un servicio TI, con qué marcos de referencia y con qué indicadores. La tercera sección cose ambas mitades con el **marco normativo** que las condiciona en una Administración Pública: Esquema Nacional de Seguridad y protección de datos personales. Un opositor que domine solo una de las dos mitades suspende la otra: el temario las une deliberadamente porque en la práctica del CAU van juntas —la asistencia remota es la herramienta con la que se resuelve la incidencia registrada.
 
-Los nombres de **productos concretos** (RDP, VNC, SSH, Intune, ServiceNow, GLPI) aparecen como ejemplos ilustrativos, no como contenido a memorizar por marcas: lo que se pregunta es el **mecanismo**. Sí conviene memorizar, en cambio, los **puertos y números de RFC** citados, porque son datos discretos y fácilmente preguntables. Las fuentes se citan con etiquetas breves tipo `[RFC6143]` o `[ITIL4]`; el registro completo está en `tema-29-fuentes.md`.
+Los nombres de **productos concretos** (RDP, VNC, SSH, Intune, ServiceNow, GLPI) aparecen como ejemplos ilustrativos, no como contenido a memorizar por marcas: lo que importa es el **mecanismo**. Sí conviene memorizar, en cambio, los **puertos y números de RFC** citados, porque son datos discretos. Las fuentes se citan con etiquetas breves tipo `[RFC6143]` o `[ITIL4]`; el registro completo está en `tema-29-fuentes.md`.
 
 **Caso de referencia usado en todo el tema** (contexto Ayuntamiento de Madrid, supuesto simplificado): una **tramitadora de una Oficina de Atención a la Ciudadanía de un distrito** no consigue firmar electrónicamente un expediente con su certificado en tarjeta criptográfica; tiene a un vecino esperando en el mostrador. Llama al **Centro de Atención a Usuarios (CAU)** del Ayuntamiento, que registra la incidencia, la prioriza, toma el control remoto de su puesto para diagnosticarla y, si no puede resolverla, la escala. Este supuesto concentra casi todas las dificultades del tema: identificación del usuario y del puesto, consentimiento para la asistencia, acceso a datos personales de terceros durante la sesión, priorización con un servicio de cara al público afectado, escalado, cumplimiento de un acuerdo de nivel de servicio, trazabilidad exigida por el ENS y aprovechamiento posterior del conocimiento generado.
 
@@ -40,7 +40,7 @@ El **puesto de trabajo digital** (o *puesto de usuario*) es el conjunto de hardw
 
 Esta definición tiene una consecuencia práctica inmediata para la gestión de incidencias: cuando un usuario dice *«no me funciona el ordenador»*, el fallo puede estar en cualquiera de esas capas, y el trabajo del primer nivel de soporte consiste precisamente en **acotar en qué capa está** antes de tocar nada.
 
-> **[DATO CLAVE EXAMEN]** El puesto de usuario es un **servicio compuesto por capas**: hardware → firmware → sistema operativo → configuración y directivas → aplicaciones → identidad y permisos → conectividad → servicios corporativos. Un fallo percibido por el usuario como único puede originarse en cualquiera de ellas, y el diagnóstico consiste en **descartar capas de abajo arriba o de arriba abajo**, no en probar soluciones al azar [ITIL4].
+> **[DATO CLAVE]** El puesto de usuario es un **servicio compuesto por capas**: hardware → firmware → sistema operativo → configuración y directivas → aplicaciones → identidad y permisos → conectividad → servicios corporativos. Un fallo percibido por el usuario como único puede originarse en cualquiera de ellas, y el diagnóstico consiste en **descartar capas de abajo arriba o de arriba abajo**, no en probar soluciones al azar [ITIL4].
 
 El **ciclo de vida del puesto** se gestiona en cinco fases, todas ellas susceptibles de automatización remota (§1.3.4):
 
@@ -52,7 +52,7 @@ El **ciclo de vida del puesto** se gestiona en cinco fases, todas ellas suscepti
 | **Soporte** | Atención de incidencias y peticiones, asistencia remota, sustitución de piezas | CAU, herramientas de control remoto (§1.3.3) |
 | **Retirada** | Baja de inventario, **borrado seguro** del almacenamiento, reasignación o destrucción certificada | Herramientas de borrado, procedimientos ENS de gestión de soportes [ENS] |
 
-> **[REFERENCIA CRUZADA]** La **administración del sistema operativo y del software de base** —actualización, mantenimiento y reparación del SO— es el objeto del **Tema 27**, y las **características y elementos constitutivos de los sistemas operativos** (Windows, Unix y Linux) los del **Tema 14**. Aquí interesa solo lo que afecta a la asistencia remota y al soporte del puesto.
+> **[RELACIÓN CON OTROS TEMAS]** La **administración del sistema operativo y del software de base** —actualización, mantenimiento y reparación del SO— es el objeto del **Tema 27**, y las **características y elementos constitutivos de los sistemas operativos** (Windows, Unix y Linux) los del **Tema 14**. Aquí interesa solo lo que afecta a la asistencia remota y al soporte del puesto.
 
 #### 1.1.1. Entornos de escritorio tradicionales y virtualizados
 
@@ -69,7 +69,7 @@ Existen cuatro grandes modelos de puesto, y la elección entre ellos condiciona 
 
 **4. Escritorio como servicio (DaaS, *Desktop as a Service*).** VDI o RDSH consumidos como **servicio en la nube** de un proveedor, que asume la infraestructura. Traslada el problema de capacidad al proveedor y lo convierte en gasto corriente, pero añade dependencia de la conectividad a internet y exige contemplar el tratamiento de datos por un tercero [VDI-VENDORS] [RGPD].
 
-> **[DATO CLAVE EXAMEN]** Distinción clásica de examen: **VDI** = una **máquina virtual completa por usuario**, con su propio sistema operativo; **RDSH** = **varias sesiones sobre un mismo sistema operativo** de servidor; **DaaS** = cualquiera de los dos anteriores **consumido como servicio en la nube**. El cliente ligero no ejecuta las aplicaciones: solo transmite entradas y recibe la imagen [MS-RDS] [VDI-VENDORS].
+> **[DATO CLAVE]** Distinción clave: **VDI** = una **máquina virtual completa por usuario**, con su propio sistema operativo; **RDSH** = **varias sesiones sobre un mismo sistema operativo** de servidor; **DaaS** = cualquiera de los dos anteriores **consumido como servicio en la nube**. El cliente ligero no ejecuta las aplicaciones: solo transmite entradas y recibe la imagen [MS-RDS] [VDI-VENDORS].
 
 La virtualización del puesto **cambia la naturaleza del soporte remoto**. En un escritorio tradicional el técnico se conecta al equipo físico del usuario; en un entorno virtualizado, el técnico puede conectarse a la máquina virtual **desde el centro de datos** sin depender de la red del usuario, y dispone de acciones que en un PC físico son costosas: reiniciar el escritorio, restaurarlo desde la imagen maestra, moverlo a otro anfitrión o clonarlo para analizar el fallo sin bloquear al usuario.
 
@@ -83,9 +83,9 @@ La virtualización del puesto **cambia la naturaleza del soporte remoto**. En un
 | Fuga de datos | Datos en el disco local | Los datos **no salen** del centro de datos |
 | Soporte remoto | Conexión al equipo del usuario | Conexión a la máquina virtual, o intervención directa desde la consola de la plataforma |
 
-> **[REFERENCIA CRUZADA]** La **virtualización de sistemas y de puestos de usuario** como tecnología —hipervisores, tipos de virtualización, contenedores— corresponde al **Tema 28**; los **paradigmas de computación distribuida y los servicios en la nube** (IaaS, PaaS, SaaS, nubes públicas/privadas/híbridas), al **Tema 31**. Este tema toma la virtualización del puesto únicamente como **escenario de soporte**.
+> **[RELACIÓN CON OTROS TEMAS]** La **virtualización de sistemas y de puestos de usuario** como tecnología —hipervisores, tipos de virtualización, contenedores— corresponde al **Tema 28**; los **paradigmas de computación distribuida y los servicios en la nube** (IaaS, PaaS, SaaS, nubes públicas/privadas/híbridas), al **Tema 31**. Este tema toma la virtualización del puesto únicamente como **escenario de soporte**.
 
-> **[EJEMPLO AYTO MADRID]** Un parque municipal de decenas de miles de puestos rara vez es homogéneo: conviven equipos tradicionales en oficinas, escritorios virtualizados para perfiles con aplicaciones muy estandarizadas (atención en mostrador, tramitación) y portátiles con VPN para teletrabajo. El CAU debe saber, **antes de conectarse**, ante qué modelo está: la misma incidencia («la aplicación de expedientes va lenta») se diagnostica de forma distinta si el proceso corre en el equipo del usuario o en un servidor compartido por doscientas sesiones más.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un parque municipal de decenas de miles de puestos rara vez es homogéneo: conviven equipos tradicionales en oficinas, escritorios virtualizados para perfiles con aplicaciones muy estandarizadas (atención en mostrador, tramitación) y portátiles con VPN para teletrabajo. El CAU debe saber, **antes de conectarse**, ante qué modelo está: la misma incidencia («la aplicación de expedientes va lenta») se diagnostica de forma distinta si el proceso corre en el equipo del usuario o en un servidor compartido por doscientas sesiones más.
 
 #### 1.1.2. Componentes hardware y software del puesto de usuario
 
@@ -100,7 +100,7 @@ El técnico de soporte necesita un **modelo mental de los componentes** del pues
 - **Controlador de gestión fuera de banda** (BMC en servidores; tecnologías de gestión integradas en placas empresariales de sobremesa): permite actuar con el equipo apagado o con el sistema operativo caído (§1.3.1) [IPMI2] [DSP0266].
 - **Periféricos**: monitor, teclado, ratón, impresora, escáner, lector de tarjeta criptográfica y lector de código de barras. Son la causa más frecuente de incidencias «físicas» y, precisamente por serlo, las que peor se resuelven en remoto: nadie puede enchufar un cable a distancia.
 
-> **[REFERENCIA CRUZADA]** La **arquitectura de ordenadores y los componentes internos de los equipos microinformáticos** se estudian en el **Tema 11**; los **periféricos, elementos de impresión, almacenamiento, visualización y digitalización**, en el **Tema 12**. Aquí solo se consideran en cuanto origen de incidencias y objeto de intervención remota.
+> **[RELACIÓN CON OTROS TEMAS]** La **arquitectura de ordenadores y los componentes internos de los equipos microinformáticos** se estudian en el **Tema 11**; los **periféricos, elementos de impresión, almacenamiento, visualización y digitalización**, en el **Tema 12**. Aquí solo se consideran en cuanto origen de incidencias y objeto de intervención remota.
 
 **Componentes software relevantes para el soporte:**
 
@@ -115,9 +115,9 @@ El técnico de soporte necesita un **modelo mental de los componentes** del pues
 | **Aplicaciones** | Ofimática, navegador, aplicaciones corporativas, complementos de firma | Errores de versión, complementos deshabilitados, incompatibilidad de navegador |
 | **Agentes de gestión** | Agente de inventario, agente de despliegue, **agente de asistencia remota** | Si el agente no comunica, **el puesto se vuelve invisible y no gestionable**: es una incidencia de soporte en sí misma |
 
-> **[DATO CLAVE EXAMEN]** El **agente de gestión** instalado en el puesto es el elemento que hace posible el inventario, el despliegue de software, el parcheo y la asistencia **desatendida**. Un equipo cuyo agente no comunica sigue funcionando para el usuario, pero para la organización está **fuera de control**: no se parchea, no se inventaría y no admite asistencia remota sin intervención del usuario [MS-INTUNE] [UEM].
+> **[DATO CLAVE]** El **agente de gestión** instalado en el puesto es el elemento que hace posible el inventario, el despliegue de software, el parcheo y la asistencia **desatendida**. Un equipo cuyo agente no comunica sigue funcionando para el usuario, pero para la organización está **fuera de control**: no se parchea, no se inventaría y no admite asistencia remota sin intervención del usuario [MS-INTUNE] [UEM].
 
-> **[EJEMPLO AYTO MADRID]** En el caso de referencia, la tramitadora no puede firmar el expediente. Recorriendo las capas: ¿está el **lector de tarjeta** conectado y reconocido (hardware/periférico)? ¿Está instalado y activo el **middleware criptográfico** (aplicación)? ¿Ha **caducado el certificado** o está revocado (identidad)? ¿El **navegador** ha deshabilitado el complemento tras una actualización (aplicaciones)? ¿Una **directiva** nueva bloquea el componente (configuración)? ¿Falla la conexión con el servicio de validación (conectividad)? Cinco de esas seis hipótesis se comprueban **en remoto en pocos minutos**; solo la primera puede exigir presencia física o la colaboración de la usuaria.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** En el caso de referencia, la tramitadora no puede firmar el expediente. Recorriendo las capas: ¿está el **lector de tarjeta** conectado y reconocido (hardware/periférico)? ¿Está instalado y activo el **middleware criptográfico** (aplicación)? ¿Ha **caducado el certificado** o está revocado (identidad)? ¿El **navegador** ha deshabilitado el complemento tras una actualización (aplicaciones)? ¿Una **directiva** nueva bloquea el componente (configuración)? ¿Falla la conexión con el servicio de validación (conectividad)? Cinco de esas seis hipótesis se comprueban **en remoto en pocos minutos**; solo la primera puede exigir presencia física o la colaboración de la usuaria.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: tres usuarios de una misma planta informan de que «internet va lento» a la misma hora. Un cuarto usuario de otra sede no tiene problemas. ¿Por dónde empezar el diagnóstico y qué capa hay que descartar primero?
 >
@@ -135,16 +135,16 @@ Conviene separar tres conceptos que el lenguaje coloquial confunde:
 | **Acceso remoto** | Conectarse a los recursos de la organización desde fuera, para **trabajar** | Teletrabajo mediante VPN o escritorio publicado |
 | **Administración o gestión remota** | Ejecutar tareas de administración sobre sistemas sin usar su escritorio | Instalar un parche por línea de órdenes en cien equipos |
 
-> **[DATO CLAVE EXAMEN]** **Control remoto ≠ acceso remoto ≠ gestión remota.** El **control remoto** sirve al **soporte** (ver y manejar el escritorio ajeno); el **acceso remoto** sirve al **usuario** (trabajar desde fuera); la **gestión remota** sirve al **administrador** (ejecutar tareas, normalmente sin interfaz gráfica y a escala). Los tres pueden compartir protocolos, pero responden a finalidades distintas y exigen autorizaciones distintas.
+> **[DATO CLAVE]** **Control remoto ≠ acceso remoto ≠ gestión remota.** El **control remoto** sirve al **soporte** (ver y manejar el escritorio ajeno); el **acceso remoto** sirve al **usuario** (trabajar desde fuera); la **gestión remota** sirve al **administrador** (ejecutar tareas, normalmente sin interfaz gráfica y a escala). Los tres pueden compartir protocolos, pero responden a finalidades distintas y exigen autorizaciones distintas.
 
-> **[REFERENCIA CRUZADA]** El **acceso remoto seguro y las VPN** se estudian en el **Tema 36** (seguridad y protección en redes de comunicaciones, seguridad perimetral y seguridad en el puesto de usuario). Este tema se centra en el **control remoto con finalidad de soporte**, aunque comparta con aquel los mecanismos de cifrado y autenticación.
+> **[RELACIÓN CON OTROS TEMAS]** El **acceso remoto seguro y las VPN** se estudian en el **Tema 36** (seguridad y protección en redes de comunicaciones, seguridad perimetral y seguridad en el puesto de usuario). Este tema se centra en el **control remoto con finalidad de soporte**, aunque comparta con aquel los mecanismos de cifrado y autenticación.
 
 Una segunda distinción, todavía más importante en el sector público, es la que separa la asistencia **atendida** de la **desatendida**:
 
 - **Asistencia atendida** (*attended*): el usuario está presente, **solicita** la asistencia y **consiente** explícitamente la sesión, normalmente comunicando un código de un solo uso o pulsando «Permitir». Es el modelo por defecto para el soporte al puesto y el más respetuoso con la intimidad del empleado.
 - **Asistencia desatendida** (*unattended*): un agente instalado permanentemente permite conectarse **sin que haya nadie delante**, típicamente para mantenimiento nocturno, equipos en salas técnicas o quioscos. Es imprescindible en la operación, pero exige controles reforzados: autorización nominal, registro de toda la sesión y justificación documentada de por qué no se pide consentimiento.
 
-> **[DATO CLAVE EXAMEN]** La asistencia **atendida** exige **consentimiento explícito del usuario en cada sesión** y muestra un **indicador visible** mientras dura; la **desatendida** no lo exige, y por eso debe compensarse con **autorización previa, mínimo privilegio, registro completo y auditoría**. En un sistema sujeto al ENS, toda sesión de asistencia —atendida o no— debe quedar **registrada y ser atribuible a una persona identificada** [ENS] [RGPD].
+> **[DATO CLAVE]** La asistencia **atendida** exige **consentimiento explícito del usuario en cada sesión** y muestra un **indicador visible** mientras dura; la **desatendida** no lo exige, y por eso debe compensarse con **autorización previa, mínimo privilegio, registro completo y auditoría**. En un sistema sujeto al ENS, toda sesión de asistencia —atendida o no— debe quedar **registrada y ser atribuible a una persona identificada** [ENS] [RGPD].
 
 Además, toda herramienta de control remoto distingue **modos de operación** con niveles de intrusión decrecientes, que deben elegirse aplicando el principio de mínimo privilegio (§3.1.1):
 
@@ -156,7 +156,7 @@ Además, toda herramienta de control remoto distingue **modos de operación** co
 
 #### 1.2.1. Arquitecturas cliente-servidor y punto a punto
 
-Toda herramienta de control remoto resuelve el mismo problema básico: **poner en contacto dos extremos** —el equipo del usuario y el del técnico— que casi nunca están en la misma red y que suelen estar separados por cortafuegos y por traducción de direcciones (NAT). Existen tres arquitecturas, y distinguirlas es materia de examen.
+Toda herramienta de control remoto resuelve el mismo problema básico: **poner en contacto dos extremos** —el equipo del usuario y el del técnico— que casi nunca están en la misma red y que suelen estar separados por cortafuegos y por traducción de direcciones (NAT). Existen tres arquitecturas, y conviene distinguirlas.
 
 **1. Conexión directa cliente-servidor.** El puesto del usuario ejecuta un **servidor** de control remoto que escucha en un puerto (por ejemplo, TCP 5900 para VNC o 3389 para RDP), y el técnico ejecuta un **cliente** que se conecta a su dirección IP. Es el modelo más simple y el más eficiente —no hay intermediarios—, pero exige:
 
@@ -166,7 +166,7 @@ Toda herramienta de control remoto resuelve el mismo problema básico: **poner e
 
 Fuera de la red corporativa, este modelo es inviable e inseguro: exponer a internet un puerto de escritorio remoto es una de las causas más habituales de compromiso de sistemas.
 
-> **[DATO CLAVE EXAMEN]** Nótese una **inversión terminológica** que se pregunta con frecuencia: en control remoto, el **servidor** es el **equipo que es controlado** (el del usuario, que «sirve» su pantalla) y el **cliente** o *visor* es el del **técnico**. En el sistema X Window ocurre algo análogo y aún más contraintuitivo: el **servidor X** se ejecuta en la máquina **donde está la pantalla del usuario**, y las aplicaciones remotas son los **clientes** [RFC6143] [X11].
+> **[DATO CLAVE]** Nótese una **inversión terminológica**: en control remoto, el **servidor** es el **equipo que es controlado** (el del usuario, que «sirve» su pantalla) y el **cliente** o *visor* es el del **técnico**. En el sistema X Window ocurre algo análogo y aún más contraintuitivo: el **servidor X** se ejecuta en la máquina **donde está la pantalla del usuario**, y las aplicaciones remotas son los **clientes** [RFC6143] [X11].
 
 **2. Conexión mediada por un servidor de intermediación** (*broker*, *rendezvous* o servidor de sesión). Es el modelo de las herramientas modernas de asistencia. Ninguno de los dos extremos escucha: **ambos abren una conexión saliente** hacia un servidor de mediación, normalmente por HTTPS en el puerto 443, y este los empareja mediante un identificador de sesión.
 
@@ -186,7 +186,7 @@ Su contrapartida es la **dependencia de la infraestructura de mediación** y, si
 | Mediada con retransmisión | No | **Sí** | Alto (todo el tráfico) | Asistencia a teletrabajo y sedes remotas |
 | Mediada con conexión punto a punto | No | **Sí** | Bajo (solo la señalización) | Modelo dominante en herramientas comerciales |
 
-> **[EJEMPLO AYTO MADRID]** Un puesto de una Oficina de Atención a la Ciudadanía está en la red corporativa: el CAU puede llegar a él por **conexión directa** a través de la red municipal, con la dirección obtenida del inventario. Un empleado en teletrabajo con un portátil corporativo, en cambio, se atiende con **conexión mediada**: su equipo abre una sesión saliente hacia el servidor de asistencia del Ayuntamiento y el técnico se empareja con él mediante un código. Si el portátil está conectado por VPN, ambos modelos son posibles, y suele preferirse el mediado por ser independiente del estado del túnel —precisamente cuando la incidencia es *que la VPN no funciona*, el modelo directo es inútil.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un puesto de una Oficina de Atención a la Ciudadanía está en la red corporativa: el CAU puede llegar a él por **conexión directa** a través de la red municipal, con la dirección obtenida del inventario. Un empleado en teletrabajo con un portátil corporativo, en cambio, se atiende con **conexión mediada**: su equipo abre una sesión saliente hacia el servidor de asistencia del Ayuntamiento y el técnico se empareja con él mediante un código. Si el portátil está conectado por VPN, ambos modelos son posibles, y suele preferirse el mediado por ser independiente del estado del túnel —precisamente cuando la incidencia es *que la VPN no funciona*, el modelo directo es inútil.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: una empleada teletrabaja desde su domicilio con un portátil corporativo. Informa de que **no le levanta la VPN**. El CAU necesita ver su equipo. ¿Qué arquitectura de conexión puede usar y por qué queda descartada la otra?
 >
@@ -201,7 +201,7 @@ Una sesión de control remoto entrega a un tercero **el control completo de un p
 - **¿Quién es el técnico?** Nunca una cuenta genérica compartida por el equipo de soporte. La identidad debe ser **nominal** y provenir del directorio corporativo (LDAP/Active Directory, con Kerberos o con protocolos de federación), reforzada con **segundo factor** cuando el privilegio es alto [RFC4511] [RFC4120].
 - **¿Quién es el equipo remoto?** El cliente debe verificar la identidad del extremo al que se conecta —mediante certificado X.509 o mediante la huella de la clave del servidor en SSH—, para evitar que un atacante suplante al puesto e interponga su propio extremo (ataque de intermediario) [RFC5280] [RFC4253].
 
-> **[DATO CLAVE EXAMEN]** Autenticar **al técnico** no basta: hay que autenticar también **al equipo remoto**. Si el visor acepta cualquier certificado o cualquier clave de servidor sin verificación, un atacante puede situarse en medio y capturar la sesión completa. La primera conexión SSH pregunta por la **huella** de la clave del servidor por esta razón, y aceptarla a ciegas anula la garantía [RFC4253].
+> **[DATO CLAVE]** Autenticar **al técnico** no basta: hay que autenticar también **al equipo remoto**. Si el visor acepta cualquier certificado o cualquier clave de servidor sin verificación, un atacante puede situarse en medio y capturar la sesión completa. La primera conexión SSH pregunta por la **huella** de la clave del servidor por esta razón, y aceptarla a ciegas anula la garantía [RFC4253].
 
 Los mecanismos concretos de autenticación más habituales, ordenados de menor a mayor robustez, son:
 
@@ -231,14 +231,14 @@ Los mecanismos concretos de autenticación más habituales, ordenados de menor a
 | **Registro y, en su caso, grabación de la sesión** | Trazabilidad exigible por el ENS (§3.1.2) |
 | **Cifrado extremo a extremo del canal** | Confidencialidad e integridad de lo transmitido (§1.3.2) |
 
-> **[EJEMPLO AYTO MADRID]** En el caso de referencia, la secuencia correcta es: la tramitadora llama al CAU; el técnico **la identifica** (número de empleada, extensión, ubicación) y **registra la incidencia**; le pide que abra la herramienta de asistencia y le facilite el **código de sesión**; el técnico se autentica con **su cuenta nominal** y su segundo factor; la usuaria **acepta** la solicitud y ve un indicador permanente en pantalla; el técnico trabaja en modo **control compartido**, pidiéndole que cierre antes documentos con datos de terceros que no necesita ver; al terminar, la sesión se cierra, el puesto **se bloquea** y queda registrado quién, cuándo, sobre qué equipo, durante cuánto tiempo y en el marco de qué incidencia se actuó.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** En el caso de referencia, la secuencia correcta es: la tramitadora llama al CAU; el técnico **la identifica** (número de empleada, extensión, ubicación) y **registra la incidencia**; le pide que abra la herramienta de asistencia y le facilite el **código de sesión**; el técnico se autentica con **su cuenta nominal** y su segundo factor; la usuaria **acepta** la solicitud y ve un indicador permanente en pantalla; el técnico trabaja en modo **control compartido**, pidiéndole que cierre antes documentos con datos de terceros que no necesita ver; al terminar, la sesión se cierra, el puesto **se bloquea** y queda registrado quién, cuándo, sobre qué equipo, durante cuánto tiempo y en el marco de qué incidencia se actuó.
 ### 1.3. Protocolos y tecnologías de control remoto
 
 #### 1.3.1. Protocolos de nivel de aplicación para gestión remota
 
 Los protocolos de control y gestión remota se sitúan en el **nivel de aplicación** del modelo TCP/IP y se apoyan casi siempre en TCP por necesitar entrega fiable y ordenada; algunos añaden UDP para el transporte de imagen y audio, donde la latencia importa más que la fiabilidad absoluta.
 
-> **[REFERENCIA CRUZADA]** El **modelo TCP/IP y el modelo de referencia OSI**, así como los protocolos de transporte TCP y UDP, se estudian en el **Tema 34**; **HTTP, HTTPS y SSL/TLS**, en el **Tema 35**. Aquí se presuponen y solo se citan los puertos y las características que distinguen a cada protocolo de gestión.
+> **[RELACIÓN CON OTROS TEMAS]** El **modelo TCP/IP y el modelo de referencia OSI**, así como los protocolos de transporte TCP y UDP, se estudian en el **Tema 34**; **HTTP, HTTPS y SSL/TLS**, en el **Tema 35**. Aquí se presuponen y solo se citan los puertos y las características que distinguen a cada protocolo de gestión.
 
 **RFB — Remote Framebuffer (VNC).** Definido en el **RFC 6143**, es el protocolo abierto por excelencia del control remoto gráfico. Su idea es deliberadamente simple: el servidor —el equipo controlado— envía al cliente el contenido de su **framebuffer**, es decir, **los píxeles de la pantalla**, y el cliente le devuelve **eventos de teclado y de ratón**. De ahí se derivan todas sus propiedades [RFC6143]:
 
@@ -255,7 +255,7 @@ Los protocolos de control y gestión remota se sitúan en el **nivel de aplicaci
 - **Cifrado y autenticación integrados**: TLS y autenticación a nivel de red antes de presentar el escritorio, lo que evita consumir recursos con conexiones no autenticadas.
 - **Pasarela de escritorio remoto**: encapsula RDP dentro de **HTTPS (443)** para atravesar cortafuegos sin publicar el 3389 [MS-RDS].
 
-> **[DATO CLAVE EXAMEN]** **VNC/RFB transmite píxeles; RDP transmite primitivas gráficas y canales virtuales.** De ahí que RDP consuma menos ancho de banda y permita redirigir impresoras y discos, mientras que VNC es más simple y más portable entre sistemas. **VNC comparte la sesión del usuario** (idóneo para asistencia); **RDP abre por defecto una sesión independiente** (idóneo para administración). Puertos: **5900** y **3389** [RFC6143] [MS-RDPBCGR].
+> **[DATO CLAVE]** **VNC/RFB transmite píxeles; RDP transmite primitivas gráficas y canales virtuales.** De ahí que RDP consuma menos ancho de banda y permita redirigir impresoras y discos, mientras que VNC es más simple y más portable entre sistemas. **VNC comparte la sesión del usuario** (idóneo para asistencia); **RDP abre por defecto una sesión independiente** (idóneo para administración). Puertos: **5900** y **3389** [RFC6143] [MS-RDPBCGR].
 
 **SSH — Secure Shell.** Definido en los **RFC 4251 a 4254**, es el estándar de administración remota en sistemas Unix y Linux, y hoy también en equipamiento de red y en Windows. Trabaja en el puerto **TCP 22** y se estructura en tres capas [RFC4251]:
 
@@ -275,7 +275,7 @@ El **reenvío de puertos** merece atención especial porque es la técnica que p
 
 **Gestión fuera de banda (*out-of-band*).** Todos los protocolos anteriores exigen que el equipo esté **encendido y con su sistema operativo funcionando**. Cuando no lo está, la única vía es un **canal independiente** que atiende un controlador dedicado con su propio procesador, su propia red y su propia alimentación: el **BMC** (*Baseboard Management Controller*) en servidores, o las tecnologías de gestión integradas en el chipset de los equipos empresariales de sobremesa. Con ellos se puede **encender, apagar, reiniciar, ver la consola desde el arranque, entrar en el firmware y montar una imagen de instalación remota** aunque el sistema operativo esté caído. El estándar clásico es **IPMI** (puerto **UDP 623**) y el moderno, **Redfish** sobre HTTPS [IPMI2] [DSP0266].
 
-> **[DATO CLAVE EXAMEN]** **Dentro de banda** (*in-band*) = la gestión viaja por el mismo canal y depende del sistema operativo del equipo (RDP, VNC, SSH, WinRM). **Fuera de banda** (*out-of-band*) = viaja por un canal independiente atendido por un controlador dedicado y **funciona con el equipo apagado o con el sistema operativo caído** (IPMI/BMC, Redfish). La gestión fuera de banda es la única que resuelve un «no arranca» sin desplazamiento [IPMI2].
+> **[DATO CLAVE]** **Dentro de banda** (*in-band*) = la gestión viaja por el mismo canal y depende del sistema operativo del equipo (RDP, VNC, SSH, WinRM). **Fuera de banda** (*out-of-band*) = viaja por un canal independiente atendido por un controlador dedicado y **funciona con el equipo apagado o con el sistema operativo caído** (IPMI/BMC, Redfish). La gestión fuera de banda es la única que resuelve un «no arranca» sin desplazamiento [IPMI2].
 
 **Wake-on-LAN.** Complemento imprescindible de la gestión remota: un **paquete mágico** dirigido a la dirección física del equipo, enviado convencionalmente a los puertos **UDP 7 o 9**, hace que la tarjeta de red —que permanece alimentada— **encienda el equipo** [RFC862]. Permite parchear de madrugada un parque de puestos apagados y volver a apagarlos antes de la jornada, sin molestar al usuario ni depender de que este deje el equipo encendido.
 
@@ -308,7 +308,7 @@ Una sesión de control remoto transporta **la pantalla completa de un puesto de 
 | **Autenticidad** | Que un tercero suplante a uno de los extremos | Certificados X.509, claves de servidor SSH |
 | **No repudio y trazabilidad** | Que no pueda saberse quién hizo qué | Registro nominal de sesiones (§3.1.2) |
 
-**TLS** (RFC 8446 para la versión 1.3) es hoy el mecanismo dominante: protege RDP, las consolas web de gestión, las API de las plataformas ITSM y el tráfico de las herramientas de asistencia mediadas. Aporta negociación de algoritmos, autenticación del servidor mediante **certificado X.509** validado contra una autoridad de confianza, intercambio de claves con **confidencialidad hacia adelante** (*forward secrecy*) —de modo que comprometer la clave privada del servidor no permite descifrar sesiones pasadas grabadas— y cifrado autenticado del canal [RFC8446] [RFC5280].
+**TLS** (RFC 9846 para la versión 1.3, que sustituye en 2026 al RFC 8446) es hoy el mecanismo dominante: protege RDP, las consolas web de gestión, las API de las plataformas ITSM y el tráfico de las herramientas de asistencia mediadas. Aporta negociación de algoritmos, autenticación del servidor mediante **certificado X.509** validado contra una autoridad de confianza, intercambio de claves con **confidencialidad hacia adelante** (*forward secrecy*) —de modo que comprometer la clave privada del servidor no permite descifrar sesiones pasadas grabadas— y cifrado autenticado del canal [RFC9846] [RFC5280].
 
 **SSH** cumple la misma función en el mundo de la administración de sistemas, con una diferencia importante en el modelo de confianza: en lugar de una autoridad de certificación, se apoya normalmente en la **huella de la clave del servidor**, que el cliente memoriza en la primera conexión y verifica en las siguientes. Es el modelo de «confianza en el primer uso», que solo es seguro si esa primera conexión se hace en condiciones controladas o si la huella se distribuye por otro medio [RFC4253].
 
@@ -318,9 +318,9 @@ Una sesión de control remoto transporta **la pantalla completa de un puesto de 
 2. **Túnel TLS** o pasarela: un extremo de terminación TLS recibe la conexión y la reenvía en claro solo dentro de un segmento controlado. Es el modelo de las pasarelas de escritorio remoto que publican RDP sobre HTTPS [MS-RDS].
 3. **Red privada virtual (VPN)**: el puesto remoto se incorpora lógicamente a la red corporativa y todo el tráfico —incluido el de gestión— viaja cifrado dentro del túnel.
 
-> **[DATO CLAVE EXAMEN]** **VNC clásico no cifra**: su contraseña se protege con un esquema de desafío-respuesta débil y el resto del tráfico —incluida la pantalla— viaja en claro. El uso correcto es **tunelizarlo sobre SSH o TLS** y hacer que el servidor VNC escuche únicamente en la interfaz local. Un servidor VNC expuesto directamente a internet es un fallo grave de seguridad [RFC6143] [RFC4254].
+> **[DATO CLAVE]** **VNC clásico no cifra**: su contraseña se protege con un esquema de desafío-respuesta débil y el resto del tráfico —incluida la pantalla— viaja en claro. El uso correcto es **tunelizarlo sobre SSH o TLS** y hacer que el servidor VNC escuche únicamente en la interfaz local. Un servidor VNC expuesto directamente a internet es un fallo grave de seguridad [RFC6143] [RFC4254].
 
-> **[REFERENCIA CRUZADA]** Los **conceptos de seguridad de los sistemas de información** —seguridad física y lógica, amenazas y vulnerabilidades, técnicas criptográficas, protocolos seguros y firma digital— corresponden al **Tema 32**; la **seguridad perimetral, el acceso remoto seguro y las VPN**, al **Tema 36**; **HTTPS y SSL/TLS** en cuanto protocolos de internet, al **Tema 35**. Este epígrafe se limita a su aplicación al canal de asistencia.
+> **[RELACIÓN CON OTROS TEMAS]** Los **conceptos de seguridad de los sistemas de información** —seguridad física y lógica, amenazas y vulnerabilidades, técnicas criptográficas, protocolos seguros y firma digital— corresponden al **Tema 32**; la **seguridad perimetral, el acceso remoto seguro y las VPN**, al **Tema 36**; **HTTPS y SSL/TLS** en cuanto protocolos de internet, al **Tema 35**. Este epígrafe se limita a su aplicación al canal de asistencia.
 
 **Buenas prácticas de fortificación del canal de asistencia**, exigibles en un sistema sujeto al ENS [ENS] [CCN-STIC]:
 
@@ -347,7 +347,7 @@ Todos los sistemas operativos de puesto incorporan, de serie, mecanismos de asis
 | **Consolas de administración remota** (visor de eventos, administración de equipos, RSAT) | Conexión a un equipo remoto desde una consola local | Consultar registros o servicios **sin molestar al usuario** |
 | **Directivas de grupo** | Configuración centralizada, incluida la de escritorio remoto y los grupos autorizados | Habilitar o restringir quién puede tomar control [MS-GPO] |
 
-Un matiz importante y muy preguntable: **no toda intervención remota exige tomar el escritorio**. Consultar el visor de eventos remoto, comprobar servicios o ejecutar una orden por WinRM son intervenciones **menos intrusivas** que un control remoto completo, y el principio de mínimo privilegio obliga a preferirlas cuando bastan.
+Un matiz importante: **no toda intervención remota exige tomar el escritorio**. Consultar el visor de eventos remoto, comprobar servicios o ejecutar una orden por WinRM son intervenciones **menos intrusivas** que un control remoto completo, y el principio de mínimo privilegio obliga a preferirlas cuando bastan.
 
 **Entornos Unix y Linux.**
 
@@ -362,9 +362,9 @@ Un matiz importante y muy preguntable: **no toda intervención remota exige toma
 
 **Herramientas multiplataforma de terceros.** Productos como los citados en [ITSM-TOOLS] y las suites comerciales de asistencia aportan conexión mediada lista para usar, catálogo de equipos, grabación de sesiones, integración con la herramienta de tiques y soporte a dispositivos móviles. Su elección en el sector público debe valorar el **lugar de tratamiento de los datos**, la posibilidad de **desplegar el servidor de mediación en las instalaciones propias** y la conformidad con el ENS [ENS] [RGPD].
 
-> **[DATO CLAVE EXAMEN]** Para **asistir** a un usuario hay que **compartir su sesión** (VNC sobre la consola física, *shadowing* de RDS, Asistencia rápida). Si la herramienta abre una **sesión nueva** —RDP estándar, servidor VNC virtual—, el técnico verá un escritorio distinto del que el usuario tiene delante y **no reproducirá su problema**. Es el error más común de un técnico novel [MS-RDS] [TIGERVNC].
+> **[DATO CLAVE]** Para **asistir** a un usuario hay que **compartir su sesión** (VNC sobre la consola física, *shadowing* de RDS, Asistencia rápida). Si la herramienta abre una **sesión nueva** —RDP estándar, servidor VNC virtual—, el técnico verá un escritorio distinto del que el usuario tiene delante y **no reproducirá su problema**. Es el error más común de un técnico novel [MS-RDS] [TIGERVNC].
 
-> **[EJEMPLO AYTO MADRID]** Para el problema de firma del caso de referencia, el técnico **necesita** compartir la sesión de la tramitadora: el lector de tarjeta está conectado a **su** equipo y el certificado está en **su** sesión, con **su** configuración de navegador. Conectarse por RDP abriendo una sesión propia no reproduciría el fallo —de hecho, expulsaría a la usuaria de su sesión en una edición de escritorio— y además, en muchas configuraciones, la tarjeta criptográfica no estaría disponible. El modo correcto es la asistencia atendida en **control compartido** sobre la sesión existente.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Para el problema de firma del caso de referencia, el técnico **necesita** compartir la sesión de la tramitadora: el lector de tarjeta está conectado a **su** equipo y el certificado está en **su** sesión, con **su** configuración de navegador. Conectarse por RDP abriendo una sesión propia no reproduciría el fallo —de hecho, expulsaría a la usuaria de su sesión en una edición de escritorio— y además, en muchas configuraciones, la tarjeta criptográfica no estaría disponible. El modo correcto es la asistencia atendida en **control compartido** sobre la sesión existente.
 
 #### 1.3.4. Soluciones centralizadas de gestión de puestos de trabajo
 
@@ -384,15 +384,15 @@ Sus funciones se agrupan en seis bloques:
 
 **6. Soporte y asistencia integrados.** Acciones remotas sobre uno o muchos equipos (reiniciar, reinstalar una aplicación, forzar sincronización, recoger registros de diagnóstico) y lanzamiento de la sesión de control remoto **desde la propia ficha del equipo o desde el tique de la incidencia**.
 
-> **[DATO CLAVE EXAMEN]** La gestión centralizada de puestos convierte el soporte **reactivo** (esperar la llamada del usuario) en **proactivo** (detectar el disco lleno, el parche que falta o el antivirus desactualizado **antes** de que provoquen una incidencia). Esa es su principal aportación al indicador de calidad del servicio: reduce el número de incidencias, no solo el tiempo de resolución [ITIL4] [COBIT2019].
+> **[DATO CLAVE]** La gestión centralizada de puestos convierte el soporte **reactivo** (esperar la llamada del usuario) en **proactivo** (detectar el disco lleno, el parche que falta o el antivirus desactualizado **antes** de que provoquen una incidencia). Esa es su principal aportación al indicador de calidad del servicio: reduce el número de incidencias, no solo el tiempo de resolución [ITIL4] [COBIT2019].
 
 **Modelos de arquitectura.** Las plataformas tradicionales se despliegan **en las instalaciones propias**, con servidores de distribución en cada sede para no saturar los enlaces; las modernas son **servicios en la nube** que gestionan el equipo dondequiera que esté, sin necesidad de VPN, lo que resulta decisivo para el teletrabajo. Los modelos **híbridos** —coexistencia de ambas— son hoy lo más habitual en Administraciones con parques heredados [MS-INTUNE] [UEM].
 
 **Gestión de configuración sin agente.** Herramientas como Ansible operan **sin instalar agente**, conectándose por SSH (Linux) o WinRM (Windows) y aplicando descripciones declarativas del estado deseado con **idempotencia**: ejecutar dos veces la misma tarea deja el sistema en el mismo estado, sin efectos acumulativos. Es el modelo dominante en servidores y creciente en puestos Linux [ANSIBLE].
 
-> **[REFERENCIA CRUZADA]** La **administración de redes de área local** —gestión de usuarios y de dispositivos, monitorización y control de tráfico— corresponde al **Tema 30**, con el que este epígrafe limita directamente: allí la unidad de gestión es la red; aquí, el puesto. La **administración del sistema operativo y del software de base**, incluida la actualización y el mantenimiento, es objeto del **Tema 27**.
+> **[RELACIÓN CON OTROS TEMAS]** La **administración de redes de área local** —gestión de usuarios y de dispositivos, monitorización y control de tráfico— corresponde al **Tema 30**, con el que este epígrafe limita directamente: allí la unidad de gestión es la red; aquí, el puesto. La **administración del sistema operativo y del software de base**, incluida la actualización y el mantenimiento, es objeto del **Tema 27**.
 
-> **[EJEMPLO AYTO MADRID]** Si el fallo de firma de la tramitadora resultara deberse a una **versión desactualizada del middleware criptográfico**, la plataforma de gestión centralizada permite responder a tres preguntas en minutos: **cuántos** puestos del parque tienen esa misma versión, **qué distritos y áreas** concentran el problema y **con qué despliegue** se corrige. Ahí la incidencia individual deja de tratarse una a una y se convierte en un **problema** con solución masiva (§2.4.2): en lugar de resolver ciento cuarenta incidencias idénticas, se despliega una actualización y se cierran todas.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Si el fallo de firma de la tramitadora resultara deberse a una **versión desactualizada del middleware criptográfico**, la plataforma de gestión centralizada permite responder a tres preguntas en minutos: **cuántos** puestos del parque tienen esa misma versión, **qué distritos y áreas** concentran el problema y **con qué despliegue** se corrige. Ahí la incidencia individual deja de tratarse una a una y se convierte en un **problema** con solución masiva (§2.4.2): en lugar de resolver ciento cuarenta incidencias idénticas, se despliega una actualización y se cierran todas.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: la organización quiere reducir el número de desplazamientos del equipo de soporte a las sedes. Enumere tres capacidades técnicas que hagan posible resolver en remoto incidencias que hoy exigen presencia, e indique qué tipo de incidencia seguirá exigiéndola.
 >
@@ -413,7 +413,7 @@ Los tres marcos de referencia que hay que conocer, y que a menudo se confunden, 
 | **ISO/IEC 20000-1:2018** | **Norma certificable** de requisitos | Requisitos auditables de un **sistema de gestión del servicio (SGS)** | Certifica a **organizaciones** [ISO20000] |
 | **COBIT 2019** | Marco de **gobierno** de la información y la tecnología | Alineación con los objetivos de la organización, objetivos de gobierno y de gestión, métricas | Certifica a personas [COBIT2019] |
 
-> **[DATO CLAVE EXAMEN]** **ITIL no se certifica como organización: se certifica a las personas.** La certificación de una organización en gestión de servicios se obtiene con **ISO/IEC 20000-1**. ITIL propone *buenas prácticas* adaptables; ISO/IEC 20000-1 impone *requisitos* auditables; **COBIT** se sitúa por encima, en el plano del **gobierno**, respondiendo a qué debe hacer la tecnología para cumplir los objetivos de la organización [ITIL4] [ISO20000] [COBIT2019].
+> **[DATO CLAVE]** **ITIL no se certifica como organización: se certifica a las personas.** La certificación de una organización en gestión de servicios se obtiene con **ISO/IEC 20000-1**. ITIL propone *buenas prácticas* adaptables; ISO/IEC 20000-1 impone *requisitos* auditables; **COBIT** se sitúa por encima, en el plano del **gobierno**, respondiendo a qué debe hacer la tecnología para cumplir los objetivos de la organización [ITIL4] [ISO20000] [COBIT2019].
 
 La relación entre ellos es de complemento, no de competencia: una organización puede **gobernar** con COBIT, **operar** con las prácticas de ITIL y **certificarse** con ISO/IEC 20000-1. En el sector público español, además, se superpone el **ENS**, que no es un marco de gestión de servicios sino de **seguridad**, pero que impone requisitos directos sobre la gestión de incidentes y sobre la trazabilidad de las actuaciones (§3.2.1) [ENS].
 
@@ -452,7 +452,7 @@ Los elementos de ITIL 4 que conviene retener son cuatro:
 | **Gestión del conocimiento** | Mantener y aprovechar la información y el conocimiento de la organización |
 | **Mejora continua** | Alinear de forma sostenida las prácticas y servicios con las necesidades cambiantes |
 
-> **[DATO CLAVE EXAMEN]** Definición canónica: una **incidencia** es una **interrupción no planificada de un servicio o una reducción de la calidad de un servicio**. El objetivo de su gestión es **restablecer el servicio normal lo antes posible**, minimizando el impacto adverso en la actividad. **No** es objetivo de la gestión de incidencias hallar la causa raíz: eso corresponde a la **gestión de problemas** [ITIL4].
+> **[DATO CLAVE]** Definición canónica: una **incidencia** es una **interrupción no planificada de un servicio o una reducción de la calidad de un servicio**. El objetivo de su gestión es **restablecer el servicio normal lo antes posible**, minimizando el impacto adverso en la actividad. **No** es objetivo de la gestión de incidencias hallar la causa raíz: eso corresponde a la **gestión de problemas** [ITIL4].
 
 Esta última frase es la más rentable del tema y conviene entender por qué es así. Cuando un servicio crítico está caído, el objetivo es **devolver el servicio**, aunque sea con una solución temporal —reiniciar, conmutar a un equipo de reserva, aplicar un rodeo—. Investigar la causa mientras cientos de usuarios están parados sería un error de prioridades. La investigación se hace después, sin prisa y con el servicio ya restablecido, dentro de la gestión de problemas. De esta separación se derivan dos indicadores distintos: la gestión de incidencias mide **tiempo de restablecimiento**; la de problemas, **reducción de incidencias recurrentes**.
 
@@ -486,7 +486,7 @@ A lo largo de estas etapas, el tique atraviesa **estados** que la herramienta de
 | **Cerrado** | Confirmado y documentado | No |
 | **Reabierto** | El usuario informa de que el fallo persiste | Sí, y penaliza los indicadores de calidad |
 
-> **[DATO CLAVE EXAMEN]** Los estados **de espera** («pendiente de usuario», «pendiente de proveedor») **detienen el reloj** del acuerdo de nivel de servicio si así se ha pactado. Por eso su uso debe estar reglado y auditado: usarlos indebidamente para «parar el reloj» es una de las malas prácticas más habituales y falsea por completo los indicadores de cumplimiento [ITIL4] [ISO20000].
+> **[DATO CLAVE]** Los estados **de espera** («pendiente de usuario», «pendiente de proveedor») **detienen el reloj** del acuerdo de nivel de servicio si así se ha pactado. Por eso su uso debe estar reglado y auditado: usarlos indebidamente para «parar el reloj» es una de las malas prácticas más habituales y falsea por completo los indicadores de cumplimiento [ITIL4] [ISO20000].
 
 **Flujos de trabajo diferenciados.** No todas las incidencias siguen el mismo camino. Las organizaciones maduras definen al menos cuatro flujos:
 
@@ -495,7 +495,7 @@ A lo largo de estas etapas, el tique atraviesa **estados** que la herramienta de
 - **Flujo de incidencia de seguridad**: cuando hay indicios de compromiso, filtración o acceso no autorizado, se activa un procedimiento propio que involucra al responsable de seguridad, preserva evidencias y valora la **notificación al CCN-CERT** y, si hay datos personales, la **notificación de brecha** (§3.2.2) [CCN-STIC] [RGPD].
 - **Flujo de petición de servicio**: sin urgencia de restablecimiento, a menudo con autorización previa y con tiempos distintos (§2.4.1).
 
-> **[EJEMPLO AYTO MADRID]** La incidencia de firma de la tramitadora sigue el **flujo estándar**. Si en lugar de un puesto fallaran todos los de la Oficina, o si cayera el servicio de firma de la sede electrónica en toda la ciudad, se activaría el **flujo de incidencia grave**: responsable designado, comunicación a las oficinas afectadas —que deben poder decir algo al ciudadano que espera— y aviso a la dirección. Y si el síntoma fuera que un certificado ha sido usado desde un equipo ajeno, el flujo sería el de **incidencia de seguridad**, con preservación de evidencias antes de tocar el puesto.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** La incidencia de firma de la tramitadora sigue el **flujo estándar**. Si en lugar de un puesto fallaran todos los de la Oficina, o si cayera el servicio de firma de la sede electrónica en toda la ciudad, se activaría el **flujo de incidencia grave**: responsable designado, comunicación a las oficinas afectadas —que deben poder decir algo al ciudadano que espera— y aviso a la dirección. Y si el síntoma fuera que un certificado ha sido usado desde un equipo ajeno, el flujo sería el de **incidencia de seguridad**, con preservación de evidencias antes de tocar el puesto.
 
 ### 2.2. El Centro de Atención a Usuarios (CAU)
 
@@ -503,7 +503,7 @@ A lo largo de estas etapas, el tique atraviesa **estados** que la herramienta de
 
 El **Centro de Atención a Usuarios (CAU)** —*service desk* en la terminología de ITIL, *help desk* en el uso coloquial— es la unidad organizativa que actúa como **punto único de contacto (SPOC, *Single Point of Contact*)** entre los usuarios y la organización de tecnología. Esa condición de punto **único** es su rasgo definitorio y la fuente de casi todo su valor: el usuario no tiene que saber a qué equipo técnico corresponde su problema, ni perseguir a nadie; llama a un solo sitio y desde ahí se orquesta todo.
 
-> **[DATO CLAVE EXAMEN]** El CAU es el **punto único de contacto (SPOC)**. En ITIL v3 era una **función** (una unidad organizativa con personas y herramientas), no un proceso; en **ITIL 4** es una **práctica**. Su valor no está solo en resolver, sino en **registrar, coordinar y comunicar**: es el propietario del tique durante toda su vida, aunque la resolución la ejecute otro grupo [ITIL4] [ITILV3].
+> **[DATO CLAVE]** El CAU es el **punto único de contacto (SPOC)**. En ITIL v3 era una **función** (una unidad organizativa con personas y herramientas), no un proceso; en **ITIL 4** es una **práctica**. Su valor no está solo en resolver, sino en **registrar, coordinar y comunicar**: es el propietario del tique durante toda su vida, aunque la resolución la ejecute otro grupo [ITIL4] [ITILV3].
 
 **Funciones del CAU:**
 
@@ -536,11 +536,11 @@ El **Centro de Atención a Usuarios (CAU)** —*service desk* en la terminologí
 | **Nivel 3** | Expertos, arquitectos, desarrolladores, **fabricante o proveedor** | Defectos de producto, análisis de causa raíz, casos sin precedente | El más caro; a menudo regulado por un contrato de soporte (UC) |
 | **Soporte de campo** | Técnicos con desplazamiento | Todo lo físico: sustitución de equipos y periféricos, cableado, sedes sin conectividad | Coste dominado por el desplazamiento |
 
-> **[DATO CLAVE EXAMEN]** El objetivo económico de la estructura por niveles es **resolver el mayor volumen posible en los niveles más bajos**, que son los más baratos. Cada escalado innecesario consume un recurso escaso. Por eso los dos indicadores que mejor miden la salud del modelo son la **tasa de resolución en primer contacto (FCR)** y la **tasa de escalado**: si la FCR baja y el escalado sube, el nivel 1 está infraformado o la base de conocimiento está desactualizada [ITIL4].
+> **[DATO CLAVE]** El objetivo económico de la estructura por niveles es **resolver el mayor volumen posible en los niveles más bajos**, que son los más baratos. Cada escalado innecesario consume un recurso escaso. Por eso los dos indicadores que mejor miden la salud del modelo son la **tasa de resolución en primer contacto (FCR)** y la **tasa de escalado**: si la FCR baja y el escalado sube, el nivel 1 está infraformado o la base de conocimiento está desactualizada [ITIL4].
 
 **Dimensionamiento y organización interna.** El CAU se dimensiona a partir del **volumen de contactos por franja horaria**, del **tiempo medio de atención** y del **nivel de servicio comprometido** (por ejemplo, atender el 80 % de las llamadas en menos de 30 segundos). De ahí salen los turnos, los refuerzos en las franjas punta —típicamente el arranque de la mañana y el regreso tras vacaciones o fines de semana largos— y la plantilla necesaria. Un CAU infradimensionado no se manifiesta como falta de resoluciones, sino como **abandono de llamadas** y como usuarios que dejan de llamar y buscan atajos, lo que a su vez oculta la demanda real.
 
-> **[EJEMPLO AYTO MADRID]** Conviene no confundir dos servicios de atención distintos en un ayuntamiento. El **CAU** es un servicio **interno**: atiende a los **empleados municipales** con incidencias en sus herramientas de trabajo. Los servicios de atención a la **ciudadanía** —el teléfono de información municipal, las Oficinas de Atención a la Ciudadanía o el soporte de la sede electrónica— atienden a **vecinos**, y su objeto no es el puesto de trabajo sino el trámite. Los dos se relacionan: si un ciudadano no puede presentar una solicitud porque la sede falla, se abrirá una incidencia técnica que gestionará el CAU o el equipo de la aplicación, pero **el canal de entrada, los usuarios y los compromisos de servicio son distintos**, y confundirlos en un examen o en un pliego es un error de bulto. Conviene retener, además, la razón de fondo por la que el soporte al puesto es un servicio crítico en una Administración: el puesto de trabajo del empleado es el instrumento con el que se ejerce el **derecho de la ciudadanía a relacionarse electrónicamente y a ser asistida en el uso de medios electrónicos** que reconoce la Ley 39/2015 [L39-2015].
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Conviene no confundir dos servicios de atención distintos en un ayuntamiento. El **CAU** es un servicio **interno**: atiende a los **empleados municipales** con incidencias en sus herramientas de trabajo. Los servicios de atención a la **ciudadanía** —el teléfono de información municipal, las Oficinas de Atención a la Ciudadanía o el soporte de la sede electrónica— atienden a **vecinos**, y su objeto no es el puesto de trabajo sino el trámite. Los dos se relacionan: si un ciudadano no puede presentar una solicitud porque la sede falla, se abrirá una incidencia técnica que gestionará el CAU o el equipo de la aplicación, pero **el canal de entrada, los usuarios y los compromisos de servicio son distintos**, y confundirlos en un examen o en un pliego es un error de bulto. Conviene retener, además, la razón de fondo por la que el soporte al puesto es un servicio crítico en una Administración: el puesto de trabajo del empleado es el instrumento con el que se ejerce el **derecho de la ciudadanía a relacionarse electrónicamente y a ser asistida en el uso de medios electrónicos** que reconoce la Ley 39/2015 [L39-2015].
 
 #### 2.2.2. Canales de entrada, registro y categorización
 
@@ -555,7 +555,7 @@ El **Centro de Atención a Usuarios (CAU)** —*service desk* en la terminologí
 | **Monitorización automática** | **Detecta antes de que el usuario lo note**; genera la incidencia sola | Puede generar ruido y falsos positivos si no se afina |
 | **Presencial** | Insustituible para lo físico | El más caro por contacto |
 
-> **[DATO CLAVE EXAMEN]** Todos los canales deben desembocar en **un único registro y una única herramienta**. Un CAU multicanal con registros separados por canal pierde la trazabilidad, duplica incidencias y hace imposible medir. La multicanalidad está en la **entrada**, nunca en el **registro** [ITIL4] [ISO20000].
+> **[DATO CLAVE]** Todos los canales deben desembocar en **un único registro y una única herramienta**. Un CAU multicanal con registros separados por canal pierde la trazabilidad, duplica incidencias y hace imposible medir. La multicanalidad está en la **entrada**, nunca en el **registro** [ITIL4] [ISO20000].
 
 **El registro.** Los campos mínimos de un tique bien registrado son:
 
@@ -582,7 +582,7 @@ Una taxonomía típica se organiza en tres niveles jerárquicos: **categoría** 
 - **Categorías excluyentes**: si dos técnicos clasifican distinto el mismo caso, los indicadores mienten.
 - **Categorización de apertura y de cierre**: la de apertura refleja lo que **parecía**; la de cierre, lo que **era**. La diferencia sistemática entre ambas es en sí misma un indicador de calidad del primer nivel y una fuente para revisar la taxonomía.
 
-> **[DATO CLAVE EXAMEN]** La **categorización de cierre** puede y suele diferir de la de apertura, y esa diferencia es información valiosa, no un error: mide cuánto acierta el primer nivel al clasificar y sirve para depurar la taxonomía y los guiones de diagnóstico. Los análisis de tendencias para la gestión de problemas deben apoyarse en la **categorización de cierre** [ITIL4].
+> **[DATO CLAVE]** La **categorización de cierre** puede y suele diferir de la de apertura, y esa diferencia es información valiosa, no un error: mide cuánto acierta el primer nivel al clasificar y sirve para depurar la taxonomía y los guiones de diagnóstico. Los análisis de tendencias para la gestión de problemas deben apoyarse en la **categorización de cierre** [ITIL4].
 
 ### 2.3. Proceso de gestión y resolución de incidencias
 
@@ -597,7 +597,7 @@ Donde:
 - El **impacto** mide **la magnitud del daño**: a cuántos usuarios afecta, qué criticidad tiene el servicio afectado, si hay pérdida económica, riesgo para la seguridad de las personas, incumplimiento legal o daño reputacional. Responde a *¿a cuánto afecta?*
 - La **urgencia** mide **la rapidez con la que el daño se agrava** si no se actúa: si el efecto es inmediato o diferido, si existe un rodeo temporal, si hay un plazo administrativo o legal que vence. Responde a *¿cuánto puede esperar?*
 
-> **[DATO CLAVE EXAMEN]** **Impacto ≠ urgencia.** Una incidencia puede tener **impacto alto y urgencia baja** (falla la copia de seguridad nocturna: afecta a todo el sistema, pero puede resolverse antes de la noche siguiente) o **impacto bajo y urgencia alta** (una sola usuaria no puede firmar, pero un plazo administrativo vence hoy). La **prioridad** es el resultado de cruzar ambas, no de ninguna de ellas por separado [ITIL4].
+> **[DATO CLAVE]** **Impacto ≠ urgencia.** Una incidencia puede tener **impacto alto y urgencia baja** (falla la copia de seguridad nocturna: afecta a todo el sistema, pero puede resolverse antes de la noche siguiente) o **impacto bajo y urgencia alta** (una sola usuaria no puede firmar, pero un plazo administrativo vence hoy). La **prioridad** es el resultado de cruzar ambas, no de ninguna de ellas por separado [ITIL4].
 
 La matriz habitual es de 3×3 o de 5×5. Con tres niveles en cada eje:
 
@@ -615,9 +615,9 @@ Los **criterios de impacto** deben estar escritos y ser objetivos, para que la c
 | **Medio** | Un grupo de usuarios afectado o servicio degradado con rodeo disponible |
 | **Bajo** | Un único usuario, con rodeo disponible y sin afectación a la atención al ciudadano |
 
-> **[DATO CLAVE EXAMEN]** La priorización **no la decide el usuario**. Que un usuario califique su caso de «urgentísimo» es información a considerar, pero la prioridad se asigna aplicando **criterios objetivos escritos**. Si la prioridad la fija quien más insiste, el sistema de priorización deja de funcionar y las incidencias verdaderamente críticas se retrasan [ITIL4].
+> **[DATO CLAVE]** La priorización **no la decide el usuario**. Que un usuario califique su caso de «urgentísimo» es información a considerar, pero la prioridad se asigna aplicando **criterios objetivos escritos**. Si la prioridad la fija quien más insiste, el sistema de priorización deja de funcionar y las incidencias verdaderamente críticas se retrasan [ITIL4].
 
-Tres matices que se preguntan con frecuencia:
+Tres matices importantes:
 
 - **La prioridad puede cambiar durante la vida del tique**: si aparecen más afectados, si vence un plazo o si el rodeo deja de funcionar, hay que **reevaluarla** y ajustar los compromisos.
 - **La agrupación eleva el impacto**: veinte tiques por la misma causa deben vincularse a una incidencia común cuyo impacto refleje a los veinte afectados, no a uno.
@@ -644,7 +644,7 @@ Tres matices que se preguntan con frecuencia:
 
 **El escalado** es la transferencia del trabajo, o del asunto, a otra instancia. Hay **dos tipos y no deben confundirse**:
 
-> **[DATO CLAVE EXAMEN]** **Escalado funcional (horizontal)**: se traslada a un grupo con **mayor conocimiento técnico o mayores permisos** (N1 → N2 → N3 → proveedor). Motivo: *no sé o no puedo resolverlo*. **Escalado jerárquico (vertical)**: se informa o se traslada a un **nivel de autoridad superior** (responsable del CAU, jefatura, dirección). Motivos: se van a incumplir los plazos, hace falta autorizar una parada o un gasto, el impacto es institucional, o hay conflicto de prioridades entre áreas. **El escalado jerárquico no aporta conocimiento técnico: aporta decisión y recursos** [ITIL4].
+> **[DATO CLAVE]** **Escalado funcional (horizontal)**: se traslada a un grupo con **mayor conocimiento técnico o mayores permisos** (N1 → N2 → N3 → proveedor). Motivo: *no sé o no puedo resolverlo*. **Escalado jerárquico (vertical)**: se informa o se traslada a un **nivel de autoridad superior** (responsable del CAU, jefatura, dirección). Motivos: se van a incumplir los plazos, hace falta autorizar una parada o un gasto, el impacto es institucional, o hay conflicto de prioridades entre áreas. **El escalado jerárquico no aporta conocimiento técnico: aporta decisión y recursos** [ITIL4].
 
 Reglas de buen escalado:
 
@@ -654,16 +654,16 @@ Reglas de buen escalado:
 - **El escalado automático** por incumplimiento de un umbral de tiempo es la salvaguarda que impide que un tique caiga en el olvido; lo configura la herramienta a partir de la matriz de escalado (§2.3.4).
 - Ambos escalados **pueden coexistir**: una incidencia grave se escala funcionalmente al especialista **y** jerárquicamente a la dirección al mismo tiempo.
 
-> **[EJEMPLO AYTO MADRID]** Si el técnico de primer nivel comprueba en remoto que el certificado de la tramitadora está caducado, resuelve en primer contacto guiándola en la renovación o generando la petición correspondiente. Si comprueba que el fallo se produce en el **servicio de validación de certificados** de la sede, **escala funcionalmente** al equipo de administración electrónica: no es un problema del puesto y el primer nivel no tiene ni conocimiento ni permisos sobre ese servicio. Y si además detecta que están llamando oficinas de varios distritos con el mismo síntoma —con lo que el impacto pasa a alto y hay ciudadanos esperando—, **escala jerárquicamente** al responsable del CAU para que active el procedimiento de incidencia grave y coordine la comunicación a las oficinas. Los dos escalados son simultáneos y responden a necesidades distintas: uno busca **quien sepa**; el otro, **quien decida**.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Si el técnico de primer nivel comprueba en remoto que el certificado de la tramitadora está caducado, resuelve en primer contacto guiándola en la renovación o generando la petición correspondiente. Si comprueba que el fallo se produce en el **servicio de validación de certificados** de la sede, **escala funcionalmente** al equipo de administración electrónica: no es un problema del puesto y el primer nivel no tiene ni conocimiento ni permisos sobre ese servicio. Y si además detecta que están llamando oficinas de varios distritos con el mismo síntoma —con lo que el impacto pasa a alto y hay ciudadanos esperando—, **escala jerárquicamente** al responsable del CAU para que active el procedimiento de incidencia grave y coordine la comunicación a las oficinas. Los dos escalados son simultáneos y responden a necesidades distintas: uno busca **quien sepa**; el otro, **quien decida**.
 
 #### 2.3.3. Resolución, restablecimiento del servicio y cierre
 
-**Resolución frente a restablecimiento.** La distinción es sutil y muy preguntable:
+**Resolución frente a restablecimiento.** La distinción es sutil:
 
 - **Restablecer el servicio** (*recovery*) es devolver al usuario la capacidad de trabajar, aunque sea con una **solución temporal o rodeo** (*workaround*): reiniciar un servicio, conmutar a un equipo de reserva, entregar un equipo de préstamo, habilitar un procedimiento manual alternativo.
 - **Resolver definitivamente** es eliminar la causa del fallo, lo que a menudo **no corresponde a la gestión de incidencias** sino a la de problemas o a la de cambios.
 
-> **[DATO CLAVE EXAMEN]** La gestión de incidencias puede cerrar un tique **con una solución temporal**, siempre que el servicio esté restablecido, el rodeo esté documentado y —si la causa persiste— **se haya abierto el problema correspondiente**. Cerrar con rodeo sin abrir el problema es la práctica que hace que la misma incidencia reaparezca indefinidamente [ITIL4].
+> **[DATO CLAVE]** La gestión de incidencias puede cerrar un tique **con una solución temporal**, siempre que el servicio esté restablecido, el rodeo esté documentado y —si la causa persiste— **se haya abierto el problema correspondiente**. Cerrar con rodeo sin abrir el problema es la práctica que hace que la misma incidencia reaparezca indefinidamente [ITIL4].
 
 **Etapas de la resolución:**
 
@@ -684,9 +684,9 @@ Una **tasa de reapertura alta** es una de las señales de alarma más fiables de
 
 #### 2.3.4. Matriz de escalado y Acuerdos de Nivel de Servicio (SLA)
 
-Un **Acuerdo de Nivel de Servicio (SLA, *Service Level Agreement*)** es el acuerdo documentado entre el **proveedor del servicio** y el **cliente** que fija los objetivos de nivel de servicio comprometidos y las responsabilidades de ambas partes. Junto a él hay que distinguir otros dos instrumentos que se preguntan sistemáticamente:
+Un **Acuerdo de Nivel de Servicio (SLA, *Service Level Agreement*)** es el acuerdo documentado entre el **proveedor del servicio** y el **cliente** que fija los objetivos de nivel de servicio comprometidos y las responsabilidades de ambas partes. Junto a él hay que distinguir otros dos instrumentos:
 
-> **[DATO CLAVE EXAMEN]** **SLA** (*Service Level Agreement*): con el **cliente** o usuario del servicio. **OLA** (*Operational Level Agreement*): acuerdo **interno**, entre equipos de la **propia organización** que sostienen ese servicio. **UC** (*Underpinning Contract*, contrato de soporte): con un **proveedor externo**. Los OLA y los UC deben estar dimensionados de forma que **permitan cumplir el SLA**: no se puede comprometer una resolución en cuatro horas con el cliente si el contrato con el fabricante que debe aportar la pieza garantiza cuarenta y ocho [ITIL4] [ISO20000].
+> **[DATO CLAVE]** **SLA** (*Service Level Agreement*): con el **cliente** o usuario del servicio. **OLA** (*Operational Level Agreement*): acuerdo **interno**, entre equipos de la **propia organización** que sostienen ese servicio. **UC** (*Underpinning Contract*, contrato de soporte): con un **proveedor externo**. Los OLA y los UC deben estar dimensionados de forma que **permitan cumplir el SLA**: no se puede comprometer una resolución en cuatro horas con el cliente si el contrato con el fabricante que debe aportar la pieza garantiza cuarenta y ocho [ITIL4] [ISO20000].
 
 **Contenido típico de un SLA de soporte al puesto:**
 
@@ -703,7 +703,7 @@ Un **Acuerdo de Nivel de Servicio (SLA, *Service Level Agreement*)** es el acuer
 | **Penalizaciones** | Consecuencias del incumplimiento, cuando el servicio está contratado |
 | **Exclusiones del cómputo** | Paradas planificadas, fuerza mayor, tiempo en espera del usuario |
 
-> **[DATO CLAVE EXAMEN]** **Tiempo de respuesta ≠ tiempo de resolución.** El de **respuesta** mide desde el registro hasta el **primer contacto efectivo** o la asignación; el de **resolución**, hasta el **restablecimiento del servicio**. Un CAU puede cumplir escrupulosamente el tiempo de respuesta y estar incumpliendo de forma sistemática el de resolución: por eso ambos se miden y se informan por separado [ITIL4].
+> **[DATO CLAVE]** **Tiempo de respuesta ≠ tiempo de resolución.** El de **respuesta** mide desde el registro hasta el **primer contacto efectivo** o la asignación; el de **resolución**, hasta el **restablecimiento del servicio**. Un CAU puede cumplir escrupulosamente el tiempo de respuesta y estar incumpliendo de forma sistemática el de resolución: por eso ambos se miden y se informan por separado [ITIL4].
 
 Un cuadro de tiempos comprometidos, ligado a la prioridad, tiene esta forma (los valores son ilustrativos: los reales se pactan en cada contrato):
 
@@ -734,7 +734,7 @@ Estas tres definiciones, junto con la de **evento** y la de **error conocido**, 
 | **Petición de servicio** | Solicitud **prevista y acordada** dentro de la prestación normal del servicio | Atenderla de forma **eficiente y predecible** | Solicitar la instalación de una aplicación del catálogo |
 | **Evento** | **Cambio de estado significativo** de un elemento de configuración o servicio | Detectar y decidir si requiere acción | La cola de impresión supera los 200 trabajos |
 
-> **[DATO CLAVE EXAMEN]** La diferencia decisiva entre **incidencia** y **petición** es que en la incidencia **algo se ha roto** —hay una interrupción o degradación no planificada— mientras que en la petición **nada está roto**: el usuario solicita algo que la organización ya ha previsto ofrecer. Consecuencias prácticas: la petición suele requerir **autorización previa** (del responsable o del propietario del dato), suele estar **catalogada con un precio o un coste** y se mide por **cumplimiento de plazo**, no por rapidez de restablecimiento [ITIL4] [ISO20000].
+> **[DATO CLAVE]** La diferencia decisiva entre **incidencia** y **petición** es que en la incidencia **algo se ha roto** —hay una interrupción o degradación no planificada— mientras que en la petición **nada está roto**: el usuario solicita algo que la organización ya ha previsto ofrecer. Consecuencias prácticas: la petición suele requerir **autorización previa** (del responsable o del propietario del dato), suele estar **catalogada con un precio o un coste** y se mide por **cumplimiento de plazo**, no por rapidez de restablecimiento [ITIL4] [ISO20000].
 
 **La gestión de peticiones de servicio** se apoya en un **catálogo de servicios** que actúa como escaparate: para cada petición se define quién puede solicitarla, qué autorización requiere, qué plazo tiene comprometido, quién la ejecuta y qué coste tiene. Peticiones típicas del puesto de trabajo:
 
@@ -754,11 +754,11 @@ Su valor está en la **predictibilidad y la automatización**: al ser previsible
 2. **Advertencia** (*warning*): algo se aproxima a un umbral y conviene actuar **antes** de que falle (el disco está al 85 %, la temperatura sube). Es la categoría que permite el **soporte proactivo**.
 3. **Excepción**: algo ha superado el umbral o ha fallado (servicio caído, disco lleno, error de autenticación repetido). Genera normalmente una **incidencia automática**.
 
-> **[DATO CLAVE EXAMEN]** La **advertencia** es la categoría de mayor valor económico de las tres: permite evitar la incidencia en lugar de resolverla. Un servicio de soporte maduro se reconoce en que una parte creciente de su trabajo procede de **eventos de advertencia** y no de llamadas de usuarios [ITIL4] [NAGIOS].
+> **[DATO CLAVE]** La **advertencia** es la categoría de mayor valor económico de las tres: permite evitar la incidencia en lugar de resolverla. Un servicio de soporte maduro se reconoce en que una parte creciente de su trabajo procede de **eventos de advertencia** y no de llamadas de usuarios [ITIL4] [NAGIOS].
 
 El riesgo característico de la monitorización es el **exceso de alertas**: si el sistema genera miles de eventos irrelevantes, los operadores dejan de mirarlos y la alerta importante se pierde entre el ruido. Las técnicas de control son la **correlación** de eventos —un enlace caído genera cien alertas de los servicios que dependen de él; hay que emitir **una** con la causa—, la **supresión durante ventanas de mantenimiento** y el **ajuste continuo de umbrales**.
 
-> **[REFERENCIA CRUZADA]** La **monitorización y el control de tráfico** en el ámbito de la red local corresponden al **Tema 30**, y los protocolos de monitorización se citan en §1.3.1 de este tema. Aquí interesa el evento como **origen de incidencias** y como palanca de soporte proactivo.
+> **[RELACIÓN CON OTROS TEMAS]** La **monitorización y el control de tráfico** en el ámbito de la red local corresponden al **Tema 30**, y los protocolos de monitorización se citan en §1.3.1 de este tema. Aquí interesa el evento como **origen de incidencias** y como palanca de soporte proactivo.
 
 #### 2.4.2. Integración de la gestión de incidencias con la gestión de problemas
 
@@ -777,7 +777,7 @@ La gestión de incidencias y la de problemas son **complementarias y de naturale
 2. **Control del problema**: análisis de la **causa raíz** (con técnicas como los *cinco porqués*, el diagrama de causa-efecto o el análisis de Kepner-Tregoe), documentación como **error conocido** y publicación de la **solución temporal** para que el CAU pueda aplicarla de inmediato en futuras incidencias.
 3. **Control del error**: gestión de la solución definitiva, que casi siempre se implanta a través de la **gestión de cambios** —un parche, una nueva versión, un cambio de configuración— y, por tanto, con evaluación de riesgo, ventana y plan de reversión.
 
-> **[DATO CLAVE EXAMEN]** La **base de datos de errores conocidos (KEDB)** es el punto de contacto operativo entre ambas prácticas: la gestión de problemas la **escribe** y la gestión de incidencias la **consulta**. Gracias a ella, una incidencia cuya causa ya está analizada se resuelve en minutos aplicando el rodeo documentado, sin diagnosticar de nuevo. Es el mecanismo que más eleva la resolución en primer contacto [ITIL4].
+> **[DATO CLAVE]** La **base de datos de errores conocidos (KEDB)** es el punto de contacto operativo entre ambas prácticas: la gestión de problemas la **escribe** y la gestión de incidencias la **consulta**. Gracias a ella, una incidencia cuya causa ya está analizada se resuelve en minutos aplicando el rodeo documentado, sin diagnosticar de nuevo. Es el mecanismo que más eleva la resolución en primer contacto [ITIL4].
 
 **Relación con la gestión de cambios y de configuración.** Tres vínculos que conviene retener:
 
@@ -785,7 +785,7 @@ La gestión de incidencias y la de problemas son **complementarias y de naturale
 - La solución definitiva de un problema **es un cambio**, y como tal debe planificarse, evaluarse y poder revertirse; aplicarla «en caliente» reintroduce el riesgo que se pretendía eliminar.
 - La **CMDB** sostiene ambas prácticas: sin saber qué elementos hay y **de qué depende cada servicio**, no puede evaluarse el impacto de una incidencia ni el alcance de un cambio.
 
-> **[EJEMPLO AYTO MADRID]** Volviendo al caso de referencia: si en dos semanas se registran ciento cuarenta incidencias de firma electrónica en oficinas de varios distritos, cada una resuelta individualmente con el mismo rodeo, la gestión de incidencias está funcionando **y el servicio está fallando**. Lo correcto es **abrir un problema**, analizar la causa raíz —por ejemplo, la incompatibilidad entre una versión del navegador desplegada por el parcheo automático y la versión del middleware criptográfico del parque—, documentarla como **error conocido** con su rodeo, y planificar la solución definitiva como un **cambio**: desplegar la versión compatible del middleware a todo el parque desde la plataforma de gestión centralizada (§1.3.4) y retener la actualización del navegador hasta que ese despliegue termine. El resultado se mide en la caída de una familia entera de incidencias, no en el tiempo de resolución de cada una.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Volviendo al caso de referencia: si en dos semanas se registran ciento cuarenta incidencias de firma electrónica en oficinas de varios distritos, cada una resuelta individualmente con el mismo rodeo, la gestión de incidencias está funcionando **y el servicio está fallando**. Lo correcto es **abrir un problema**, analizar la causa raíz —por ejemplo, la incompatibilidad entre una versión del navegador desplegada por el parcheo automático y la versión del middleware criptográfico del parque—, documentarla como **error conocido** con su rodeo, y planificar la solución definitiva como un **cambio**: desplegar la versión compatible del middleware a todo el parque desde la plataforma de gestión centralizada (§1.3.4) y retener la actualización del navegador hasta que ese despliegue termine. El resultado se mide en la caída de una familia entera de incidencias, no en el tiempo de resolución de cada una.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: clasifique cada uno de estos cinco casos como incidencia, problema, error conocido, petición de servicio o evento. (a) Un usuario solicita acceso a la carpeta compartida de su unidad. (b) El servidor de correo notifica que el espacio de disco alcanza el 90 %. (c) Un usuario no puede abrir su correo. (d) Se documenta que la aplicación de expedientes falla al exportar a PDF con la versión 12.3 del visor, y que el rodeo es exportar antes a otro formato. (e) Se detecta que veinte usuarios de tres sedes distintas han sufrido el mismo error de exportación esta semana.
 >
@@ -818,7 +818,7 @@ El **principio de mínimo privilegio** establece que todo sujeto debe disponer *
 5. **Modo mínimo suficiente**: si basta con ver, no se controla; si basta con consultar un registro en remoto, no se toma el escritorio.
 6. **Revisión periódica de los derechos concedidos**: quien cambia de puesto conserva permisos que ya no necesita si nadie los revisa; es la acumulación silenciosa de privilegios.
 
-> **[DATO CLAVE EXAMEN]** El **mínimo privilegio** tiene dos dimensiones que hay que citar juntas: **qué** permisos (los imprescindibles) y **durante cuánto tiempo** (solo el necesario). Se completa con la **segregación de funciones**, que impide que una misma persona concentre capacidades incompatibles —por ejemplo, administrar la herramienta de asistencia y auditar sus registros— [ENS] [ISO27001].
+> **[DATO CLAVE]** El **mínimo privilegio** tiene dos dimensiones que hay que citar juntas: **qué** permisos (los imprescindibles) y **durante cuánto tiempo** (solo el necesario). Se completa con la **segregación de funciones**, que impide que una misma persona concentre capacidades incompatibles —por ejemplo, administrar la herramienta de asistencia y auditar sus registros— [ENS] [ISO27001].
 
 **Controles complementarios** que endurecen el acceso:
 
@@ -829,7 +829,7 @@ El **principio de mínimo privilegio** establece que todo sujeto debe disponer *
 - **Inventario y control de las herramientas instaladas**: una herramienta de asistencia remota instalada por un usuario a título particular es una puerta trasera no gestionada, y su detección debe generar incidencia de seguridad.
 - **Gestión del ciclo de vida del técnico**: al causar baja o cambiar de función, la retirada de sus accesos debe ser inmediata y verificada.
 
-> **[EJEMPLO AYTO MADRID]** Un técnico de primer nivel del CAU necesita tomar el control de puestos de las Oficinas de Atención a la Ciudadanía; no necesita —ni debe poder— tomar el puesto de una persona de la Asesoría Jurídica ni el de un cargo directivo, ni acceder desatendido a ningún equipo. Ese ajuste no se logra con una instrucción escrita, sino **configurando el alcance de su perfil** en la herramienta. Y si un día necesitase excepcionalmente ese acceso, la vía correcta es una **elevación temporal autorizada y registrada**, no un permiso permanente concedido «por si acaso».
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un técnico de primer nivel del CAU necesita tomar el control de puestos de las Oficinas de Atención a la Ciudadanía; no necesita —ni debe poder— tomar el puesto de una persona de la Asesoría Jurídica ni el de un cargo directivo, ni acceder desatendido a ningún equipo. Ese ajuste no se logra con una instrucción escrita, sino **configurando el alcance de su perfil** en la herramienta. Y si un día necesitase excepcionalmente ese acceso, la vía correcta es una **elevación temporal autorizada y registrada**, no un permiso permanente concedido «por si acaso».
 
 #### 3.1.2. Trazabilidad, auditoría y registro de actividades de asistencia
 
@@ -850,7 +850,7 @@ La **trazabilidad** es una de las cinco dimensiones de seguridad del ENS y signi
 
 **Grabación de sesiones.** Algunas herramientas permiten grabar en vídeo la sesión completa. Es una medida potente para los accesos de mayor privilegio y para los desatendidos, pero **no es inocua**: la grabación captura la pantalla del empleado, con su correo, sus documentos y datos personales de terceros. Su implantación exige base jurídica, **información previa** al personal y a la representación de los trabajadores, finalidad limitada (auditoría de seguridad, no control laboral encubierto), **plazo de conservación** definido, cifrado y acceso restringido a los auditores [RGPD] [LOPDGDD].
 
-> **[DATO CLAVE EXAMEN]** Los registros de actividad deben ser **íntegros y protegidos frente a manipulación**, incluida la del propio administrador: se centralizan en un sistema **independiente** del sistema auditado, con control de acceso propio y con un **plazo de conservación** definido. Un registro que el propio administrador puede borrar no acredita nada [ENS] [ISO27001].
+> **[DATO CLAVE]** Los registros de actividad deben ser **íntegros y protegidos frente a manipulación**, incluida la del propio administrador: se centralizan en un sistema **independiente** del sistema auditado, con control de acceso propio y con un **plazo de conservación** definido. Un registro que el propio administrador puede borrar no acredita nada [ENS] [ISO27001].
 
 **Sincronización horaria.** Sin una **fuente de tiempo común y fiable** para todos los sistemas, los registros de distintos equipos no pueden correlacionarse y la reconstrucción de una secuencia de hechos se vuelve discutible. Es un requisito explícito de los sistemas sujetos al ENS y una de las carencias más habituales en auditoría.
 
@@ -864,7 +864,7 @@ El **Esquema Nacional de Seguridad**, regulado por el **Real Decreto 311/2022, d
 
 **Las cinco dimensiones de seguridad** que el ENS obliga a valorar en cada sistema son:
 
-> **[DATO CLAVE EXAMEN]** Dimensiones del ENS: **Disponibilidad (D), Autenticidad (A), Integridad (I), Confidencialidad (C) y Trazabilidad (T)**. Cada una se valora en tres niveles —**BAJO, MEDIO y ALTO**— y la **categoría del sistema** (**BÁSICA, MEDIA o ALTA**) la determina el **nivel más alto** alcanzado por cualquiera de sus dimensiones [ENS] [CCN-STIC].
+> **[DATO CLAVE]** Dimensiones del ENS: **Disponibilidad (D), Autenticidad (A), Integridad (I), Confidencialidad (C) y Trazabilidad (T)**. Cada una se valora en tres niveles —**BAJO, MEDIO y ALTO**— y la **categoría del sistema** (**BÁSICA, MEDIA o ALTA**) la determina el **nivel más alto** alcanzado por cualquiera de sus dimensiones [ENS] [CCN-STIC].
 
 **Los principios básicos** del ENS, que orientan toda decisión de seguridad, son la seguridad como **proceso integral**, la **gestión de la seguridad basada en los riesgos**, la **prevención, detección, respuesta y conservación**, la **existencia de líneas de defensa**, la **vigilancia continua y reevaluación periódica** y la **diferenciación de responsabilidades**. Junto a ellos, el ENS fija **requisitos mínimos** —desde la organización e implantación del proceso de seguridad hasta el control de acceso, el registro de actividad, la gestión de incidentes y la continuidad—.
 
@@ -886,9 +886,9 @@ Las medidas más directamente aplicables a este tema son las de **control de acc
 - **Responsables diferenciados**: el ENS distingue las figuras de **responsable de la información**, **responsable del servicio**, **responsable de la seguridad** y **responsable del sistema**, con la exigencia de que la responsabilidad de la seguridad esté **diferenciada** de la de la explotación del sistema.
 - **Cadena de suministro**: cuando el soporte está externalizado, las obligaciones se trasladan **contractualmente** al proveedor, que debe acreditar su propia conformidad con el ENS.
 
-> **[REFERENCIA CRUZADA]** Los **principios básicos del Esquema Nacional de Seguridad y del Esquema Nacional de Interoperabilidad** son objeto específico del **Tema 39**, donde se desarrollan con detalle; los **conceptos generales de seguridad de los sistemas de información**, del **Tema 32**. Este epígrafe se limita a los requisitos que condicionan la **asistencia remota y la gestión de incidencias**.
+> **[RELACIÓN CON OTROS TEMAS]** Los **principios básicos del Esquema Nacional de Seguridad y del Esquema Nacional de Interoperabilidad** son objeto específico del **Tema 39**, donde se desarrollan con detalle; los **conceptos generales de seguridad de los sistemas de información**, del **Tema 32**. Este epígrafe se limita a los requisitos que condicionan la **asistencia remota y la gestión de incidencias**.
 
-> **[EJEMPLO AYTO MADRID]** Un sistema municipal que da soporte a la tramitación de expedientes con datos de ciudadanos tendrá, como mínimo, niveles medios en confidencialidad, integridad y trazabilidad, lo que sitúa al sistema en **categoría MEDIA o superior** y obliga, entre otras cosas, a **auditoría bienal**. Para el CAU eso se traduce en obligaciones concretas y comprobables: cuentas nominales sin excepciones, autenticación reforzada para el personal de soporte, cifrado de todas las sesiones de asistencia, registro íntegro de cada intervención asociada a su tique, conservación de esos registros durante el plazo fijado y procedimiento escrito de gestión de incidentes con criterios de notificación al CCN-CERT.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un sistema municipal que da soporte a la tramitación de expedientes con datos de ciudadanos tendrá, como mínimo, niveles medios en confidencialidad, integridad y trazabilidad, lo que sitúa al sistema en **categoría MEDIA o superior** y obliga, entre otras cosas, a **auditoría bienal**. Para el CAU eso se traduce en obligaciones concretas y comprobables: cuentas nominales sin excepciones, autenticación reforzada para el personal de soporte, cifrado de todas las sesiones de asistencia, registro íntegro de cada intervención asociada a su tique, conservación de esos registros durante el plazo fijado y procedimiento escrito de gestión de incidentes con criterios de notificación al CCN-CERT.
 
 #### 3.2.2. Protección de datos personales en la atención de incidencias
 
@@ -915,7 +915,7 @@ Durante una sesión de asistencia remota, el técnico accede —de hecho, aunque
 - **Notificación de brechas (arts. 33 y 34 RGPD)**: si durante una asistencia se produce o se descubre una brecha —acceso no autorizado, pérdida o divulgación indebida—, hay que notificarla a la autoridad de control **sin dilación indebida y, de ser posible, en un plazo máximo de 72 horas** desde que se tuvo constancia, y a los interesados cuando entrañe alto riesgo para sus derechos y libertades.
 - **Derechos digitales en el ámbito laboral (arts. 87-91 LOPDGDD)**: el empleado tiene **derecho a la intimidad frente al uso de dispositivos digitales** puestos a su disposición. La organización puede establecer criterios de uso y control, pero debe **informar previamente** al personal y a la representación de los trabajadores. Esto afecta de lleno a la asistencia desatendida y a la grabación de sesiones.
 
-> **[DATO CLAVE EXAMEN]** Dos plazos y una regla que se preguntan mucho: la **notificación de una brecha de datos personales** a la autoridad de control debe hacerse **sin dilación indebida y, a ser posible, en 72 horas**; la comunicación **a los afectados** procede cuando la brecha entrañe **alto riesgo** para sus derechos y libertades. Y la regla: el acceso del técnico a datos personales durante una asistencia solo es lícito **para la finalidad de resolver la incidencia registrada** [RGPD].
+> **[DATO CLAVE]** Dos plazos y una regla clave: la **notificación de una brecha de datos personales** a la autoridad de control debe hacerse **sin dilación indebida y, a ser posible, en 72 horas**; la comunicación **a los afectados** procede cuando la brecha entrañe **alto riesgo** para sus derechos y libertades. Y la regla: el acceso del técnico a datos personales durante una asistencia solo es lícito **para la finalidad de resolver la incidencia registrada** [RGPD].
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: durante una sesión de asistencia remota para resolver un problema de impresión, el técnico observa en la pantalla del usuario un documento con datos de salud de un ciudadano y, además, se percata de que el usuario tiene abierta una carpeta compartida a la que —a su juicio— no debería tener acceso. ¿Cómo debe actuar?
 >
@@ -959,7 +959,7 @@ Un servicio que no se mide no puede mejorarse ni defenderse ante quien lo financ
 
 **4. Eficiencia y coste:** coste medio por contacto y por canal —el autoservicio es un orden de magnitud más barato que el teléfono, y este que el desplazamiento—, número de contactos por técnico y hora, y proporción de trabajo **proactivo** (procedente de eventos de advertencia) frente a **reactivo**.
 
-> **[DATO CLAVE EXAMEN]** Los indicadores deben ser **SMART**: específicos, medibles, alcanzables, relevantes y acotados en el tiempo. Y deben **equilibrarse entre sí**: medir solo el volumen resuelto por técnico premia cerrar rápido y mal; por eso la productividad se contrasta siempre con la **tasa de reapertura** y con la **satisfacción**. Un indicador aislado siempre se puede maximizar a costa del servicio [ITIL4] [COBIT2019].
+> **[DATO CLAVE]** Los indicadores deben ser **SMART**: específicos, medibles, alcanzables, relevantes y acotados en el tiempo. Y deben **equilibrarse entre sí**: medir solo el volumen resuelto por técnico premia cerrar rápido y mal; por eso la productividad se contrasta siempre con la **tasa de reapertura** y con la **satisfacción**. Un indicador aislado siempre se puede maximizar a costa del servicio [ITIL4] [COBIT2019].
 
 **Malas prácticas frecuentes en la medición**, todas ellas ejemplos del mismo fenómeno —el indicador se convierte en objetivo y deja de medir la realidad—:
 
@@ -989,7 +989,7 @@ La **gestión del conocimiento** es la práctica que convierte la experiencia ac
 2. **Errores conocidos**: problemas analizados con su causa, su rodeo y el estado de la solución definitiva (KEDB, §2.4.2).
 3. **Artículos de autoservicio**: redactados **para el usuario**, en lenguaje no técnico, publicados en el portal. Son los que alimentan el nivel 0.
 
-> **[DATO CLAVE EXAMEN]** Un artículo de base de conocimiento debe redactarse **desde el síntoma**, no desde la causa: el técnico que lo busca sabe lo que ve («no puedo firmar»), no lo que falla. Los artículos escritos desde la causa son invisibles en la búsqueda y por eso no se usan, por muy correctos que sean [ITIL4].
+> **[DATO CLAVE]** Un artículo de base de conocimiento debe redactarse **desde el síntoma**, no desde la causa: el técnico que lo busca sabe lo que ve («no puedo firmar»), no lo que falla. Los artículos escritos desde la causa son invisibles en la búsqueda y por eso no se usan, por muy correctos que sean [ITIL4].
 
 **El ciclo de vida del artículo** —creación, revisión, aprobación, publicación, uso, revisión periódica y retirada— es lo que distingue una base de conocimiento viva de un cementerio de documentos. Sus reglas prácticas:
 
@@ -1005,4 +1005,4 @@ La **gestión del conocimiento** es la práctica que convierte la experiencia ac
 
 Las **fuentes de mejora** de un CAU son cuatro, y todas han aparecido en este tema: los **indicadores** (§3.3.1), que señalan dónde duele; la **gestión de problemas** (§2.4.2), que elimina familias enteras de incidencias; la **satisfacción y las quejas** de los usuarios, que revelan lo que las métricas no capturan; y las **auditorías** de seguridad y de cumplimiento (§3.2.1), que detectan lo que la operación normaliza sin darse cuenta.
 
-> **[EJEMPLO AYTO MADRID]** Cerrando el caso de referencia: la incidencia de firma de la tramitadora se resolvió en su día actualizando el middleware criptográfico. Bien gestionada, esa resolución produce cuatro salidas duraderas, y no solo un tique cerrado: **(1)** un **artículo de resolución** para el nivel 1, redactado desde el síntoma «no puedo firmar con la tarjeta»; **(2)** un **artículo de autoservicio** en el portal, para que el siguiente usuario compruebe él mismo la versión antes de llamar; **(3)** un **error conocido** en la KEDB mientras la solución definitiva se despliega a todo el parque; y **(4)** una **acción de mejora** en la plataforma de gestión centralizada, que a partir de ahora vigila la versión del middleware como elemento de configuración y avisa cuando un puesto se desvía. La incidencia deja de existir como categoría, que es la mejor manera de resolverla.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Cerrando el caso de referencia: la incidencia de firma de la tramitadora se resolvió en su día actualizando el middleware criptográfico. Bien gestionada, esa resolución produce cuatro salidas duraderas, y no solo un tique cerrado: **(1)** un **artículo de resolución** para el nivel 1, redactado desde el síntoma «no puedo firmar con la tarjeta»; **(2)** un **artículo de autoservicio** en el portal, para que el siguiente usuario compruebe él mismo la versión antes de llamar; **(3)** un **error conocido** en la KEDB mientras la solución definitiva se despliega a todo el parque; y **(4)** una **acción de mejora** en la plataforma de gestión centralizada, que a partir de ahora vigila la versión del middleware como elemento de configuración y avisa cuando un puesto se desvía. La incidencia deja de existir como categoría, que es la mejor manera de resolverla.

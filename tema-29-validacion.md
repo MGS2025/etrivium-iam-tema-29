@@ -84,8 +84,7 @@
 
 _(Espacio para anotaciones de María, Ana y la revisión IAM.)_
 
-- **Hueco de la serie**: este tema se ha generado saltando los **Temas 27 y 28**, cuyos esqueletos ya están disponibles en `Test_Prompting/temas agosto/` (T25 y T26 sí están publicados). Conviene planificar su generación para cerrar el bloque T11-T29 sin huecos.
 - Pendiente confirmar con el IAM si interesa **desarrollar más la parte de virtualización del puesto** (§1.1.1) o si conviene dejarla apuntada aquí y remitirla íntegramente al **Tema 28**, evitando duplicidad.
 - Pendiente confirmar si conviene detallar el **catálogo de medidas del Anexo II del ENS** medida a medida en §3.2.1, o si el nivel actual —bloques y grupos, con las medidas relevantes citadas— es el adecuado al existir ya el **Tema 39** dedicado al ENS y al ENI.
-- Los **valores de tiempo del SLA** de §2.3.4 y de D13 son **ilustrativos**. Si el IAM facilita los tiempos reales comprometidos en su contrato de soporte al puesto, conviene sustituirlos para que el opositor estudie las cifras que le van a preguntar.
+- Los **valores de tiempo del SLA** de §2.3.4 y de D13 son **ilustrativos**. Si el IAM facilita los tiempos reales comprometidos en su contrato de soporte al puesto, conviene sustituirlos para que el opositor estudie las cifras reales.
 - Este tema, junto al 31 (cloud) y al 24 (desarrollo móvil), es sensible a la **obsolescencia tecnológica** en su primera mitad (§1); la segunda (§2 y §3) es mucho más estable. Conviene revisar §1.3 antes de cada convocatoria.
