@@ -40,7 +40,7 @@
 **Propósito**: Fijar la diferencia entre los cuatro modelos de puesto, señalando dónde se ejecuta la aplicación en cada uno y qué consecuencia tiene para el soporte.
 
 ```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" role="img" aria-label="Comparativa de los cuatro modelos de puesto de trabajo: escritorio tradicional, infraestructura de escritorio virtual VDI, servicios de escritorio remoto por sesión RDSH y escritorio como servicio DaaS, indicando dónde se ejecuta la aplicación, qué viaja por la red y la consecuencia para el soporte técnico">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 346" role="img" aria-label="Comparativa de los cuatro modelos de puesto de trabajo: escritorio tradicional, infraestructura de escritorio virtual VDI, servicios de escritorio remoto por sesión RDSH y escritorio como servicio DaaS, indicando dónde se ejecuta la aplicación, qué viaja por la red y la consecuencia para el soporte técnico">
   <style>.t1{font:700 11px system-ui,sans-serif;fill:#fff}.s1{font:9px system-ui,sans-serif;fill:#fff}.d1{font:9px system-ui,sans-serif;fill:#333}.h1{font:700 13px system-ui,sans-serif;fill:#0055a0}.k1{font:700 9.5px system-ui,sans-serif;fill:#0055a0}</style>
   <text x="340" y="20" text-anchor="middle" class="h1">Cuatro modelos de puesto de trabajo</text>
   <rect x="20" y="34" width="152" height="38" rx="5" fill="#0055a0"/><text x="96" y="50" text-anchor="middle" class="t1">TRADICIONAL</text><text x="96" y="64" text-anchor="middle" class="s1">cliente pesado (PC)</text>
@@ -67,7 +67,7 @@
   <rect x="521" y="258" width="152" height="44" rx="4" fill="#f5f5f5"/><text x="597" y="275" text-anchor="middle" class="d1">Capacidad y datos</text><text x="597" y="290" text-anchor="middle" class="d1">en manos del proveedor</text>
   <rect x="90" y="310" width="500" height="20" rx="4" fill="none" stroke="#0055a0" stroke-width="1.5"/>
   <text x="340" y="324" text-anchor="middle" class="k1">Sin red no hay puesto en VDI, RDSH ni DaaS; el tradicional trabaja en local</text>
-  <text x="670" y="337" text-anchor="end" style="font:10px system-ui;fill:#666">[Fuente: MS-RDS; VDI-VENDORS]</text>
+  <text x="670" y="343" text-anchor="end" style="font:10px system-ui;fill:#666">[Fuente: MS-RDS; VDI-VENDORS]</text>
 </svg>
 ```
 
@@ -128,7 +128,7 @@
   <rect x="530" y="54" width="130" height="44" rx="5" fill="#2d8659"/><text x="595" y="72" text-anchor="middle" class="t3">PUESTO</text><text x="595" y="88" text-anchor="middle" class="t3" style="font-weight:400">servidor: escucha</text>
   <line x1="150" y1="76" x2="525" y2="76" stroke="#0055a0" stroke-width="2" marker-end="url(#a3)"/>
   <text x="337" y="70" text-anchor="middle" class="lb3">conexión entrante al puerto 3389 o 5900</text>
-  <rect x="300" y="80" width="76" height="18" rx="3" fill="#d13c3c"/><text x="338" y="93" text-anchor="middle" class="t3">CORTAFUEGOS</text>
+  <rect x="292" y="80" width="92" height="18" rx="3" fill="#d13c3c"/><text x="338" y="93" text-anchor="middle" class="t3">CORTAFUEGOS</text>
   <text x="20" y="118" class="d3">Requiere visibilidad de red y puertos entrantes abiertos. Inviable fuera de la red corporativa.</text>
   <line x1="20" y1="128" x2="660" y2="128" stroke="#ddd" stroke-width="1"/>
   <text x="20" y="150" class="k3">2 · CONEXIÓN MEDIADA CON RETRANSMISIÓN</text>
@@ -238,7 +238,7 @@
   <rect x="20" y="112" width="640" height="24" rx="3" fill="#eef3f8"/>
   <text x="30" y="128" class="d5">SSH</text><text x="165" y="128" class="p5">TCP 22</text><text x="265" y="128" class="d5">Texto cifrado + túneles</text><text x="430" y="128" class="d5">Administración de Unix, Linux y red</text>
   <rect x="20" y="140" width="640" height="24" rx="3" fill="#fbeaea"/>
-  <text x="30" y="156" class="d5">Telnet</text><text x="165" y="156" class="p5">TCP 23</text><text x="265" y="156" class="d5">Texto EN CLARO</text><text x="430" y="156" class="d5">Obsoleto y desaconsejado: debe estar deshabilitado</text>
+  <text x="30" y="156" class="d5">Telnet</text><text x="165" y="156" class="p5">TCP 23</text><text x="265" y="156" class="d5">Texto EN CLARO</text><text x="430" y="156" class="d5" style="font-size:8.6px">Obsoleto y desaconsejado: debe estar deshabilitado</text>
   <rect x="20" y="168" width="640" height="24" rx="3" fill="#f5f5f5"/>
   <text x="30" y="184" class="d5">WinRM</text><text x="165" y="184" class="p5">TCP 5985/5986</text><text x="265" y="184" class="d5">WS-Management (DMTF)</text><text x="430" y="184" class="d5">Órdenes y automatización en Windows</text>
   <rect x="20" y="196" width="640" height="24" rx="3" fill="#eef3f8"/>
@@ -398,7 +398,7 @@
   <rect x="454" y="126" width="206" height="52" rx="5" fill="#2d8659"/><text x="557" y="145" text-anchor="middle" class="t9">6 · SOPORTE</text><text x="557" y="160" text-anchor="middle" class="s9">acciones remotas y sesión</text><text x="557" y="173" text-anchor="middle" class="s9">de control desde el tique</text>
   <line x1="225" y1="152" x2="234" y2="152" stroke="#0055a0" stroke-width="2" marker-end="url(#a9)"/>
   <line x1="442" y1="152" x2="451" y2="152" stroke="#0055a0" stroke-width="2" marker-end="url(#a9)"/>
-  <path d="M557,178 L557,196 L122,196 L122,88" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a9)"/>
+  <path d="M557,178 L557,196 L5,196 L5,62 L17,62" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#a9)"/>
   <text x="340" y="192" text-anchor="middle" class="n9">lo aprendido en el soporte actualiza el inventario y las líneas base</text>
   <rect x="20" y="210" width="315" height="60" rx="5" fill="#fbeaea"/>
   <text x="177" y="228" text-anchor="middle" class="k9">SIN GESTIÓN CENTRALIZADA</text>
@@ -477,7 +477,7 @@
   <rect x="152" y="166" width="126" height="34" rx="4" fill="#fdf3e6"/><text x="215" y="182" text-anchor="middle" class="d11">Espera del usuario</text><text x="215" y="195" text-anchor="middle" class="d11">Espera de terceros</text>
   <rect x="284" y="166" width="126" height="34" rx="4" fill="#eaf3ee"/><text x="347" y="182" text-anchor="middle" class="d11">Resuelto</text><text x="347" y="195" text-anchor="middle" class="d11">Cerrado</text>
   <rect x="416" y="166" width="126" height="34" rx="4" fill="#fbeaea"/><text x="479" y="182" text-anchor="middle" class="d11">Reabierto</text><text x="479" y="195" text-anchor="middle" class="d11">(penaliza calidad)</text>
-  <rect x="548" y="166" width="112" height="34" rx="4" fill="#0055a0"/><text x="604" y="182" text-anchor="middle" class="t11">EL RELOJ SE</text><text x="604" y="195" text-anchor="middle" class="t11">DETIENE EN NARANJA</text>
+  <rect x="548" y="166" width="112" height="34" rx="4" fill="#0055a0"/><text x="604" y="182" text-anchor="middle" class="t11" style="font-size:9px">EL RELOJ SE</text><text x="604" y="195" text-anchor="middle" class="t11" style="font-size:9px">DETIENE EN NARANJA</text>
   <text x="20" y="226" class="k11">CUATRO FLUJOS DIFERENCIADOS</text>
   <rect x="20" y="234" width="155" height="52" rx="4" fill="#0055a0"/><text x="97" y="252" text-anchor="middle" class="t11">ESTÁNDAR</text><text x="97" y="268" text-anchor="middle" class="t11" style="font-weight:400">la mayoría de casos</text>
   <rect x="182" y="234" width="155" height="52" rx="4" fill="#d13c3c"/><text x="259" y="252" text-anchor="middle" class="t11">INCIDENCIA GRAVE</text><text x="259" y="268" text-anchor="middle" class="t11" style="font-weight:400">responsable designado,</text><text x="259" y="281" text-anchor="middle" class="t11" style="font-weight:400">comunicación y revisión</text>
@@ -681,7 +681,7 @@
 **Propósito**: Cerrar el tema mostrando cómo la asistencia remota, la gestión de incidencias, el marco normativo y los indicadores forman un único ciclo que se realimenta.
 
 ```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" role="img" aria-label="El ciclo completo del servicio: la asistencia remota y la gestión de incidencias sometidas a los controles del Esquema Nacional de Seguridad y del RGPD, medidas mediante indicadores clave de rendimiento, y realimentadas por la gestión del conocimiento, la gestión de problemas, la satisfacción de los usuarios y las auditorías, con las cinco dimensiones de seguridad y las categorías del sistema">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 366" role="img" aria-label="El ciclo completo del servicio: la asistencia remota y la gestión de incidencias sometidas a los controles del Esquema Nacional de Seguridad y del RGPD, medidas mediante indicadores clave de rendimiento, y realimentadas por la gestión del conocimiento, la gestión de problemas, la satisfacción de los usuarios y las auditorías, con las cinco dimensiones de seguridad y las categorías del sistema">
   <style>.t16{font:700 10.5px system-ui,sans-serif;fill:#fff}.s16{font:9px system-ui,sans-serif;fill:#fff}.d16{font:9px system-ui,sans-serif;fill:#333}.h16{font:700 13px system-ui,sans-serif;fill:#0055a0}.k16{font:700 9.5px system-ui,sans-serif;fill:#0055a0}.n16{font:8.5px system-ui,sans-serif;fill:#666}</style>
   <defs><marker id="a16" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#0055a0"/></marker></defs>
   <text x="340" y="20" text-anchor="middle" class="h16">El marco normativo envuelve toda la operación</text>
@@ -730,6 +730,6 @@
   <line x1="340" y1="314" x2="340" y2="322" stroke="#0055a0" stroke-width="2" marker-end="url(#a16)"/>
   <rect x="140" y="326" width="400" height="24" rx="5" fill="#0055a0"/>
   <text x="340" y="342" text-anchor="middle" class="t16">MEJORA CONTINUA · planificar, hacer, verificar, actuar</text>
-  <text x="670" y="356" text-anchor="end" class="n16">[Fuente: ENS; RGPD; ITIL4; ISO20000]</text>
+  <text x="670" y="362" text-anchor="end" class="n16">[Fuente: ENS; RGPD; ITIL4; ISO20000]</text>
 </svg>
 ```
